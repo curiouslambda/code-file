@@ -1,0 +1,6 @@
+Traceback (most recent call last):
+  File "example_wandb.py", line 73, in <module>
+    results_df = results_df.append({
+  File "C:\Users\shs03\.conda\envs\videoanal\lib\site-packages\pandas\core\generic.py", line 5989, in __getattr__
+    return object.__getattribute__(self, name)
+AttributeError: 'DataFrame' object has no attribute 'append'
