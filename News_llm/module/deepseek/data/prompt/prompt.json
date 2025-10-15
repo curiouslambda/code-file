@@ -1,0 +1,3 @@
+{
+    "tag_extraction": "1. Extract relevant tags (industries, companies, market keywords, etc.) from the given context in the form of a list.\n2. If it is not possible to determine the tags with certainty, return the message: \"Error: Unable to determine relevant tags.\"\n3. Always return the answer strictly as a JSON-formatted list.\n4. Output only the result list without any explanations.\n\ncontext: {context}\n\nanswer:"
+}
