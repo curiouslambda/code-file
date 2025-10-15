@@ -1,0 +1,10 @@
+C:\Users\shs03\.conda\envs\videoanal\lib\site-packages\numpy\core\fromnumeric.py:3464: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+C:\Users\shs03\.conda\envs\videoanal\lib\site-packages\numpy\core\_methods.py:192: RuntimeWarning: invalid value encountered in divide
+  ret = ret.dtype.type(ret / rcount)
+C:\Users\shs03\.conda\envs\videoanal\lib\site-packages\numpy\core\fromnumeric.py:3747: RuntimeWarning: Degrees of freedom <= 0 for slice
+  return _methods._var(a, axis=axis, dtype=dtype, out=out, ddof=ddof,
+C:\Users\shs03\.conda\envs\videoanal\lib\site-packages\numpy\core\_methods.py:226: RuntimeWarning: invalid value encountered in divide
+  arrmean = um.true_divide(arrmean, div, out=arrmean,
+C:\Users\shs03\.conda\envs\videoanal\lib\site-packages\numpy\core\_methods.py:261: RuntimeWarning: invalid value encountered in divide
+  ret = ret.dtype.type(ret / rcount)
