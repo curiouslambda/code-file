@@ -1,0 +1,3 @@
+[submodule "instruction/training-code"]
+	path = instruction/training-code
+	url = https://github.com/rifkiaputri/training-code.git
