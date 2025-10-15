@@ -1,0 +1,21 @@
+Traceback (most recent call last):
+  File "C:\Users\shs03\.conda\envs\videoanal\lib\site-packages\PIL\ImageFile.py", line 536, in _save
+    fh = fp.fileno()
+AttributeError: '_idat' object has no attribute 'fileno'
+During handling of the above exception, another exception occurred:
+Traceback (most recent call last):
+  File "example_wandb.py", line 69, in <module>
+    wandb.log({'Optical Flow Analysis': wandb.Image(img)})
+  File "C:\Users\shs03\.conda\envs\videoanal\lib\site-packages\wandb\sdk\data_types\image.py", line 179, in __init__
+    self._initialize_from_data(data_or_path, mode, file_type)
+  File "C:\Users\shs03\.conda\envs\videoanal\lib\site-packages\wandb\sdk\data_types\image.py", line 336, in _initialize_from_data
+    self._image.save(tmp_path, transparency=None)
+  File "C:\Users\shs03\.conda\envs\videoanal\lib\site-packages\PIL\Image.py", line 2459, in save
+    save_handler(self, fp, filename)
+  File "C:\Users\shs03\.conda\envs\videoanal\lib\site-packages\PIL\PngImagePlugin.py", line 1412, in _save
+    ImageFile._save(im, _idat(fp, chunk), [("zip", (0, 0) + im.size, 0, rawmode)])
+  File "C:\Users\shs03\.conda\envs\videoanal\lib\site-packages\PIL\ImageFile.py", line 540, in _save
+    _encode_tile(im, fp, tile, bufsize, None, exc)
+  File "C:\Users\shs03\.conda\envs\videoanal\lib\site-packages\PIL\ImageFile.py", line 559, in _encode_tile
+    errcode, data = encoder.encode(bufsize)[1:]
+KeyboardInterrupt
