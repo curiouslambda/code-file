@@ -1,0 +1,557 @@
+[
+    {
+        "sampled_prob_A": 0.7511824948419589
+    },
+    {
+        "sampled_prob_B": 0.8010630213537321
+    },
+    {
+        "sampled_prob_C": 0.905491480225704
+    },
+    {
+        "category": "C",
+        "alpha": 1,
+        "beta": 2,
+        "success_prob": 0.65,
+        "success_count": {
+            "A": 0,
+            "B": 0,
+            "C": 1
+        }
+    },
+    {
+        "sampled_prob_A": 0.1643125434680601
+    },
+    {
+        "sampled_prob_B": 0.2959919518450552
+    },
+    {
+        "sampled_prob_C": 0.4060866961135776
+    },
+    {
+        "category": "C",
+        "alpha": 1,
+        "beta": 3,
+        "success_prob": 0.55,
+        "success_count": {
+            "A": 0,
+            "B": 0,
+            "C": 2
+        }
+    },
+    {
+        "sampled_prob_A": 0.42328421644616054
+    },
+    {
+        "sampled_prob_B": 0.7320696532095932
+    },
+    {
+        "sampled_prob_C": 0.5171850089422626
+    },
+    {
+        "category": "B",
+        "alpha": 1,
+        "beta": 4,
+        "success_prob": 0.65,
+        "success_count": {
+            "A": 0,
+            "B": 0,
+            "C": 2
+        }
+    },
+    {
+        "sampled_prob_A": 0.5883378692826258
+    },
+    {
+        "sampled_prob_B": 0.23190987963778895
+    },
+    {
+        "sampled_prob_C": 0.6687745378698005
+    },
+    {
+        "category": "C",
+        "alpha": 1,
+        "beta": 5,
+        "success_prob": 0.75,
+        "success_count": {
+            "A": 0,
+            "B": 0,
+            "C": 2
+        }
+    },
+    {
+        "sampled_prob_A": 0.029684255995373388
+    },
+    {
+        "sampled_prob_B": 0.374803154104228
+    },
+    {
+        "sampled_prob_C": 0.4081736361952454
+    },
+    {
+        "category": "C",
+        "alpha": 1,
+        "beta": 6,
+        "success_prob": 0.65,
+        "success_count": {
+            "A": 0,
+            "B": 0,
+            "C": 3
+        }
+    },
+    {
+        "sampled_prob_A": 0.27088329967624575
+    },
+    {
+        "sampled_prob_B": 0.5700673871097584
+    },
+    {
+        "sampled_prob_C": 0.5669822162922451
+    },
+    {
+        "category": "B",
+        "alpha": 2,
+        "beta": 6,
+        "success_prob": 0.55,
+        "success_count": {
+            "A": 0,
+            "B": 1,
+            "C": 3
+        }
+    },
+    {
+        "sampled_prob_A": 0.7511801275420168
+    },
+    {
+        "sampled_prob_B": 0.8745376689134986
+    },
+    {
+        "sampled_prob_C": 0.5932680451671396
+    },
+    {
+        "category": "B",
+        "alpha": 2,
+        "beta": 7,
+        "success_prob": 0.65,
+        "success_count": {
+            "A": 0,
+            "B": 1,
+            "C": 3
+        }
+    },
+    {
+        "sampled_prob_A": 0.03188696359470233
+    },
+    {
+        "sampled_prob_B": 0.8437591017704144
+    },
+    {
+        "sampled_prob_C": 0.587516569342817
+    },
+    {
+        "category": "B",
+        "alpha": 3,
+        "beta": 7,
+        "success_prob": 0.55,
+        "success_count": {
+            "A": 0,
+            "B": 2,
+            "C": 3
+        }
+    },
+    {
+        "sampled_prob_A": 0.6651830853356274
+    },
+    {
+        "sampled_prob_B": 0.5078042655140822
+    },
+    {
+        "sampled_prob_C": 0.6462991069319298
+    },
+    {
+        "category": "A",
+        "alpha": 4,
+        "beta": 7,
+        "success_prob": 0.45000000000000007,
+        "success_count": {
+            "A": 1,
+            "B": 2,
+            "C": 3
+        }
+    },
+    {
+        "sampled_prob_A": 0.06441901170203702
+    },
+    {
+        "sampled_prob_B": 0.8791720690292218
+    },
+    {
+        "sampled_prob_C": 0.0018918464010614533
+    },
+    {
+        "category": "B",
+        "alpha": 5,
+        "beta": 7,
+        "success_prob": 0.3500000000000001,
+        "success_count": {
+            "A": 1,
+            "B": 3,
+            "C": 3
+        }
+    },
+    {
+        "sampled_prob_A": 0.89631863322302
+    },
+    {
+        "sampled_prob_B": 0.8810591183512672
+    },
+    {
+        "sampled_prob_C": 0.05867333937177327
+    },
+    {
+        "category": "A",
+        "alpha": 6,
+        "beta": 7,
+        "success_prob": 0.2500000000000001,
+        "success_count": {
+            "A": 2,
+            "B": 3,
+            "C": 3
+        }
+    },
+    {
+        "sampled_prob_A": 0.35094605651216504
+    },
+    {
+        "sampled_prob_B": 0.7751234246582521
+    },
+    {
+        "sampled_prob_C": 0.3462412152989072
+    },
+    {
+        "category": "B",
+        "alpha": 6,
+        "beta": 8,
+        "success_prob": 0.3500000000000001,
+        "success_count": {
+            "A": 2,
+            "B": 3,
+            "C": 3
+        }
+    },
+    {
+        "sampled_prob_A": 0.9403754578974202
+    },
+    {
+        "sampled_prob_B": 0.238890566790454
+    },
+    {
+        "sampled_prob_C": 0.6731811493690391
+    },
+    {
+        "category": "A",
+        "alpha": 6,
+        "beta": 9,
+        "success_prob": 0.45000000000000007,
+        "success_count": {
+            "A": 2,
+            "B": 3,
+            "C": 3
+        }
+    },
+    {
+        "sampled_prob_A": 0.6899819234891141
+    },
+    {
+        "sampled_prob_B": 0.9495500872664159
+    },
+    {
+        "sampled_prob_C": 0.3499475481421586
+    },
+    {
+        "category": "B",
+        "alpha": 6,
+        "beta": 10,
+        "success_prob": 0.55,
+        "success_count": {
+            "A": 2,
+            "B": 3,
+            "C": 3
+        }
+    },
+    {
+        "sampled_prob_A": 0.5731194525278207
+    },
+    {
+        "sampled_prob_B": 0.8758781588837979
+    },
+    {
+        "sampled_prob_C": 0.21447400496750912
+    },
+    {
+        "category": "B",
+        "alpha": 6,
+        "beta": 11,
+        "success_prob": 0.65,
+        "success_count": {
+            "A": 2,
+            "B": 3,
+            "C": 3
+        }
+    },
+    {
+        "sampled_prob_A": 0.8525801177296677
+    },
+    {
+        "sampled_prob_B": 0.8154811772708054
+    },
+    {
+        "sampled_prob_C": 0.7067050228840583
+    },
+    {
+        "category": "A",
+        "alpha": 7,
+        "beta": 11,
+        "success_prob": 0.55,
+        "success_count": {
+            "A": 3,
+            "B": 3,
+            "C": 3
+        }
+    },
+    {
+        "sampled_prob_A": 0.13646496940009595
+    },
+    {
+        "sampled_prob_B": 0.4921780116234036
+    },
+    {
+        "sampled_prob_C": 0.021756531637882527
+    },
+    {
+        "category": "B",
+        "alpha": 8,
+        "beta": 11,
+        "success_prob": 0.45000000000000007,
+        "success_count": {
+            "A": 3,
+            "B": 4,
+            "C": 3
+        }
+    },
+    {
+        "sampled_prob_A": 0.34397629453890577
+    },
+    {
+        "sampled_prob_B": 0.5871411152823068
+    },
+    {
+        "sampled_prob_C": 0.14068946456855538
+    },
+    {
+        "category": "B",
+        "alpha": 8,
+        "beta": 12,
+        "success_prob": 0.55,
+        "success_count": {
+            "A": 3,
+            "B": 4,
+            "C": 3
+        }
+    },
+    {
+        "sampled_prob_A": 0.35732445546037295
+    },
+    {
+        "sampled_prob_C": 0.36634717897197233
+    },
+    {
+        "category": "C",
+        "alpha": 8,
+        "beta": 13,
+        "success_prob": 0.45000000000000007,
+        "success_count": {
+            "A": 3,
+            "B": 4,
+            "C": 4
+        }
+    },
+    {
+        "sampled_prob_A": 0.4892722356909743
+    },
+    {
+        "sampled_prob_C": 0.956899546687742
+    },
+    {
+        "category": "C",
+        "alpha": 8,
+        "beta": 14,
+        "success_prob": 0.3500000000000001,
+        "success_count": {
+            "A": 3,
+            "B": 4,
+            "C": 5
+        }
+    },
+    {
+        "sampled_prob_A": 0.6075054372173717
+    },
+    {
+        "sampled_prob_C": 0.13687378831388944
+    },
+    {
+        "category": "A",
+        "alpha": 8,
+        "beta": 15,
+        "success_prob": 0.45000000000000007,
+        "success_count": {
+            "A": 3,
+            "B": 4,
+            "C": 5
+        }
+    },
+    {
+        "sampled_prob_A": 0.021616950424662756
+    },
+    {
+        "sampled_prob_C": 0.3080235050439478
+    },
+    {
+        "category": "C",
+        "alpha": 8,
+        "beta": 16,
+        "success_prob": 0.3500000000000001,
+        "success_count": {
+            "A": 3,
+            "B": 4,
+            "C": 6
+        }
+    },
+    {
+        "sampled_prob_A": 0.5871970851883345
+    },
+    {
+        "sampled_prob_C": 0.3595574448519854
+    },
+    {
+        "category": "A",
+        "alpha": 9,
+        "beta": 16,
+        "success_prob": 0.2500000000000001,
+        "success_count": {
+            "A": 4,
+            "B": 4,
+            "C": 6
+        }
+    },
+    {
+        "sampled_prob_A": 0.04434213834673741
+    },
+    {
+        "sampled_prob_C": 0.9060918725686351
+    },
+    {
+        "category": "C",
+        "alpha": 9,
+        "beta": 17,
+        "success_prob": 0.3500000000000001,
+        "success_count": {
+            "A": 4,
+            "B": 4,
+            "C": 6
+        }
+    },
+    {
+        "sampled_prob_A": 0.39401862065007026
+    },
+    {
+        "sampled_prob_C": 0.9193532201267224
+    },
+    {
+        "category": "C",
+        "alpha": 9,
+        "beta": 18,
+        "success_prob": 0.45000000000000007,
+        "success_count": {
+            "A": 4,
+            "B": 4,
+            "C": 6
+        }
+    },
+    {
+        "sampled_prob_A": 0.8853052629667221
+    },
+    {
+        "sampled_prob_C": 0.08557417636019422
+    },
+    {
+        "category": "A",
+        "alpha": 9,
+        "beta": 19,
+        "success_prob": 0.55,
+        "success_count": {
+            "A": 4,
+            "B": 4,
+            "C": 6
+        }
+    },
+    {
+        "sampled_prob_A": 0.35277953547850827
+    },
+    {
+        "sampled_prob_C": 0.7132144096755317
+    },
+    {
+        "category": "C",
+        "alpha": 9,
+        "beta": 20,
+        "success_prob": 0.45000000000000007,
+        "success_count": {
+            "A": 4,
+            "B": 4,
+            "C": 7
+        }
+    },
+    {
+        "sampled_prob_A": 0.35245697439479734
+    },
+    {
+        "category": "A",
+        "alpha": 10,
+        "beta": 20,
+        "success_prob": 0.3500000000000001,
+        "success_count": {
+            "A": 5,
+            "B": 4,
+            "C": 7
+        }
+    },
+    {
+        "sampled_prob_A": 0.16503166776399444
+    },
+    {
+        "category": "A",
+        "alpha": 11,
+        "beta": 20,
+        "success_prob": 0.2500000000000001,
+        "success_count": {
+            "A": 6,
+            "B": 4,
+            "C": 7
+        }
+    },
+    {
+        "sampled_prob_A": 0.13113703908167254
+    },
+    {
+        "category": "A",
+        "alpha": 11,
+        "beta": 21,
+        "success_prob": 0.3500000000000001,
+        "success_count": {
+            "A": 6,
+            "B": 4,
+            "C": 7
+        }
+    }
+]

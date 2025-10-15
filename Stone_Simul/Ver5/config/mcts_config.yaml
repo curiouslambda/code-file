@@ -1,0 +1,10 @@
+# Random seed for reproducibility
+seed: 42
+
+# MCTS parameters
+c_puct: 5.0  # 탐색-활용 트레이드오프 파라미터
+max_simulations: 2000  # 최대 시뮬레이션 횟수
+n_episodes: 100  # 총 실행할 에피소드 수
+
+# Output paths
+log_file: "logs/mcts.log" 

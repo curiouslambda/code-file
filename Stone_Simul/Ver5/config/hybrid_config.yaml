@@ -1,0 +1,28 @@
+# 하이브리드 DP-MCTS 설정 파일
+
+# Random seed for reproducibility
+seed: 42
+
+# 로깅 설정
+log_level: INFO
+log_file: logs/hybrid.log
+
+# MCTS 파라미터
+c_puct: 3.0
+max_simulations: 500
+
+# 하이브리드 파라미터
+guidance_weight: 0.3          # DP 가이던스 가중치 (0.0 ~ 1.0)
+guidance_threshold: 10          # 가이던스 적용 임계값 (남은 슬롯 수)
+guidance_temperature: 0.5      # DP 행동 선택 온도 (낮을수록 집중)
+exploration_weight: 0.1        # 탐색 가중치 (0.0 ~ 1.0)
+
+# DP 결과 파일 경로
+dp_values_path: outputs/dp_values.npz
+
+# 실험 설정
+num_episodes: 100              # 통계 수집용 에피소드 수
+
+# 출력 설정
+output_dir: outputs/hybrid/figures
+results_save_path: outputs/hybrid/hybrid_results.npz 

@@ -1,0 +1,14 @@
+# Random seed for reproducibility
+seed: 42
+
+# Value Iteration parameters
+gamma: 0.99  # discount factor
+theta: 1.0e-6  # convergence threshold
+max_iterations: 1000  # maximum iterations
+
+# Output paths
+output_dir: "outputs"
+log_file: "logs/dp.log"
+value_curve_plot: "outputs/figures/dp_value_curve.png"
+value_heatmap_plot: "outputs/figures/dp_value_heatmap.png"
+value_save_path: "outputs/dp_values.npz" 
