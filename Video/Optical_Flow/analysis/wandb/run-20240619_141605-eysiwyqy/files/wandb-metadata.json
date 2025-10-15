@@ -1,0 +1,47 @@
+{
+    "os": "Windows-10-10.0.22000-SP0",
+    "python": "3.8.19",
+    "heartbeatAt": "2024-06-19T05:16:06.298285",
+    "startedAt": "2024-06-19T05:16:05.591027",
+    "docker": null,
+    "cuda": null,
+    "args": [],
+    "state": "running",
+    "program": "example_wandb.py",
+    "codePathLocal": "example_wandb.py",
+    "codePath": "example_wandb.py",
+    "host": "HASim",
+    "username": "sha",
+    "executable": "C:\\Users\\shs03\\.conda\\envs\\videoanal\\python.exe",
+    "cpu_count": 8,
+    "cpu_count_logical": 8,
+    "cpu_freq": {
+        "current": 3600.0,
+        "min": 0.0,
+        "max": 3600.0
+    },
+    "cpu_freq_per_core": [
+        {
+            "current": 3600.0,
+            "min": 0.0,
+            "max": 3600.0
+        }
+    ],
+    "disk": {
+        "/": {
+            "total": 1862.9999961853027,
+            "used": 498.0816116333008
+        }
+    },
+    "gpu": "NVIDIA GeForce RTX 2060",
+    "gpu_count": 1,
+    "gpu_devices": [
+        {
+            "name": "NVIDIA GeForce RTX 2060",
+            "memory_total": 6442450944
+        }
+    ],
+    "memory": {
+        "total": 31.93600845336914
+    }
+}
