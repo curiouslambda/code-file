@@ -1,0 +1,306 @@
+{% extends "layouts/base.html" %}
+
+{% block title %} Dashboard {% endblock %} 
+
+<!-- Specific Page CSS goes HERE  -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+
+    <div class="content">
+        <div class="row">
+            <div class="col-12">
+                <div class="card card-chart">
+                    <div class="card-header ">
+                        <div class="row">
+                            <div class="col-sm-6 text-left">
+                                <h5 class="card-category">2016년~2020년</h5>
+                                <h2 class="card-title">연관 키워드 검색량 추이</h2>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="btn-group btn-group-toggle float-right" data-toggle="buttons">
+                                    <label class="btn btn-sm btn-primary btn-simple active" id="0">
+                                        <input type="radio" name="options" checked>
+                                        <span class="d-none d-sm-block d-md-block d-lg-block d-xl-block">이상기후</span>
+                                        <span class="d-block d-sm-none">
+                        <i class="tim-icons icon-single-02"></i>
+                    </span>
+                                    </label>
+                                    <label class="btn btn-sm btn-primary btn-simple" id="1">
+                                        <input type="radio" class="d-none d-sm-none" name="options">
+                                        <span class="d-none d-sm-block d-md-block d-lg-block d-xl-block">온실가스</span>
+                                        <span class="d-block d-sm-none">
+                        <i class="tim-icons icon-gift-2"></i>
+                    </span>
+                                    </label>
+                                    <label class="btn btn-sm btn-primary btn-simple" id="2">
+                                        <input type="radio" class="d-none" name="options">
+                                        <span class="d-none d-sm-block d-md-block d-lg-block d-xl-block">기후위기</span>
+                                        <span class="d-block d-sm-none">
+                        <i class="tim-icons icon-tap-02"></i>
+                    </span>
+                                    </label>
+                                    <label class="btn btn-sm btn-primary btn-simple" id="3">
+                                        <input type="radio" class="d-none" name="options">
+                                        <span class="d-none d-sm-block d-md-block d-lg-block d-xl-block">탄소배출</span>
+                                        <span class="d-block d-sm-none">
+                        <i class="tim-icons icon-tap-02"></i>
+                    </span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="chart-area">
+                            <canvas id="chartBig1"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-4">
+                <div class="card card-chart">
+                    <div class="card-header">
+                        <h5 class="card-category">2016년~2019년</h5>
+                        <h3 class="card-title"><i class></i> 국내 산업 온실가스 최대 배출량 추이</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="chart-area">
+                            <canvas id="chartLinePurple"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="card card-chart">
+                    <div class="card-header">
+                        <h5 class="card-category">2016년~2022년</h5>
+                        <h3 class="card-title"><i class></i>장마 기간 총 강수량 변화</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="chart-area">
+                            <canvas id="CountryChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="card card-chart">
+                    <div class="card-header">
+                        <h5 class="card-category">2016년~2022년</h5>
+                        <h3 class="card-title"><i class></i> 연도별 평균 장마 일수 변화 </h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="chart-area">
+                            <canvas id="chartLineGreen"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6 col-md-12">
+                <div class="card">
+                    <div class="card-header ">
+                        <h6 class="card-title">데이터 간의 상관 관계 계수</h6>
+                    </div>
+                    <div class="card-body ">
+                        <div class="table-responsive">
+                            <table class="table tablesorter" id="">
+                                <thead class=" text-primary">
+                                <tr>
+                                    <th>
+                                        데이터1
+                                    </th>
+                                    <th>
+                                        데이터2
+                                    </th>
+                                    <th>
+                                        상관계수
+                                    </th>
+                                    <th>
+                                        결론
+                                    </th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td>
+                                        평균 장마 일수
+                                    </td>
+                                    <td>
+                                        국내 산업 온실가스 최대 배출량
+                                    </td>
+                                    <td>
+                                        0.7272548801350748
+                                    </td>
+                                    <td>
+                                        강한 상관 관계
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        장마 기간 총 강수량
+                                    </td>
+                                    <td>
+                                        국내 산업 온실가스 최대 배출량
+                                    </td>
+                                    <td>
+                                        0.7616279925340889
+                                    </td>
+                                    <td>
+                                        강한 상관 관계
+                                    </td>
+                                </tr>
+                                    <td>
+                                        폭염 일수
+                                    </td>
+                                    <td>
+                                        탄소 배출 총량
+                                    </td>
+                                    <td>
+                                        0.26253294942572464
+                                    </td>
+                                    <td>
+                                        약한 상관 관계
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-12">
+                <div class="card ">
+                    <div class="card-header">
+                        <h4 class="card-title"> 검색 키워드 간의 상관 관계 계수</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table tablesorter " id="">
+                                <thead class=" text-primary">
+                                <tr>
+                                    <th>
+                                        키워드1
+                                    </th>
+                                    <th>
+                                        키워드2
+                                    </th>
+                                    <th>
+                                        상관계수
+                                    </th>
+                                    <th class>
+                                        결론
+                                    </th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td>
+                                        탄소배출
+                                    </td>
+                                    <td>
+                                        기후위기
+                                    </td>
+                                    <td>
+                                        0.8651425867768688
+                                    </td>
+                                    <td class>
+                                        매우 강한 상관 관계
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        탄소배출
+                                    </td>
+                                    <td>
+                                        이상기후
+                                    </td>
+                                    <td>
+                                        0.6964117754525839
+                                    </td>
+                                    <td class>
+                                        강한 상관관계
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        온실가스
+                                    </td>
+                                    <td>
+                                        기후위기
+                                    </td>
+                                    <td>
+                                        0.4988051864174031
+                                    </td>
+                                    <td>
+                                        상관 관계가 있다
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        온실가스
+                                    </td>
+                                    <td>
+                                        이상기후
+                                    </td>
+                                    <td>
+                                        0.5035435589849869
+                                    </td>
+                                    <td class>
+                                        상관 관계가 있다
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6 col-md-12">
+                <div class="card">
+                    <div class="card-header ">
+                        <h6 class="card-title">평균 장마일수와 온실가스 최대 배출량</h6>
+                        <img src="/static/assets/img/graph01.png" width="300px" height="300px">
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-12">
+                <div class="card ">
+                    <div class="card-header">
+                        <h4 class="card-title">장마 기간 총 강수량과 온실가스 최대 배출량</h4>
+                        <img src="/static/assets/img/graph02.png" width="300px" height="300px">
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-12">
+                <div class="card ">
+                    <div class="card-header">
+                        <h4 class="card-title">폭염 일수와 총 탄소 배출량</h4>
+                        <img src="/static/assets/img/graph03.png" width="300px" height="300px">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+{% endblock content %}
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}
+
+<script>
+    $(document).ready(function () {
+        // Javascript method's body can be found in assets/js/demos.js
+        demo.initDashboardPageCharts();
+
+    });
+</script>
+
+{% endblock javascripts %}

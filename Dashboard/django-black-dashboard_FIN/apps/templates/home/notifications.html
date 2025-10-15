@@ -1,0 +1,210 @@
+{% extends "layouts/base.html" %}
+
+{% block title %} Notifications {% endblock %} 
+
+<!-- Specific Page CSS goes HERE  -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+
+  <div class="content">
+    <div class="card">
+      <div class="card-body">
+        <div class="places-buttons">
+          <div class="row">
+            <div class="col-md-6 ml-auto mr-auto text-center">
+              <h2 class="card-title">
+               한국
+                <p class="category"></p>
+              </h2>
+            </div>
+          </div>
+          <div class="row">
+            
+          </div>
+          <div class="row">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="card">
+          <div class="card-header">
+            <h3 class="card-title">한국 연평균 기온 변화 및 탄소배출량 현황</h3>
+          </div>
+          <div class="card-body">
+            <img src = '../../static/assets/img/korea_temp_emiss_summary.png' onclick = "window.open(this.src)">
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="card">
+          <div class="card-header">
+            <h3 class="card-title">한국 총 탄소배출량과 계절별 기온 상관관계</h3>
+          </div>
+          <div class="card-body">
+            <div>&nbsp;
+              <div>&nbsp;
+                <div>&nbsp;</div>
+              </div>
+            </div>
+              <img src = '../../static/assets/img/korea_temp_total_emiss.png' onclick = "window.open(this.src)">
+              <div>&nbsp;
+                <div>&nbsp;
+                  <div>&nbsp;</div>
+                </div>
+              </div>
+          </div>
+        </div>
+      </div>
+      &nbsp;
+      <div>&nbsp;
+        <div>&nbsp;
+          <div>&nbsp;
+            <div>&nbsp;</div>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-body">
+          <div class="places-buttons">
+            <div class="row">
+              <div class="col-md-6 ml-auto mr-auto text-center">
+                <h2 class="card-title">
+                 세계
+                  <p class="category"></p>
+                </h2>
+              </div>
+            </div>
+            <div class="row">
+              
+            </div>
+            <div class="row">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-body">
+            <div class="places-buttons">
+              <div class="row">
+                <div class="col-md-6 ml-auto mr-auto text-center">
+                  <h3 class="card-title">
+                    세계 종류별 자연재해로 인한 사망자 수 현황
+                    <p></p>
+                    <p class="category"><img src = '../../static/assets/img/world_disaster_death_summary.png' onclick = "window.open(this.src)"></p>
+                  </h3>
+                </div>
+              </div>
+              <div class="row">
+              </div>
+              <div class="row">
+                
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="card">
+          <div class="card-header">
+            <h3 class="card-title">세계 총 탄소배출량과 자연재해 사망자 수 추세선</h3>
+          </div>
+          <div class="card-body">
+            <img src = '../../static/assets/img/world_disa_death_emiss.png' onclick = "window.open(this.src)">
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="card">
+          <div class="card-header">
+            <h3 class="card-title">2015년 이후 세계 탄소배출량과 자연재해 사망자 수 추세선</h3>
+          </div>
+          <div class="card-body">
+            <img src = '../../static/assets/img/world_disa_death_emiss_2015.png' onclick = "window.open(this.src)">
+          </div>
+        </div>
+      </div>
+      <div>
+        &nbsp;
+        <div>
+          &nbsp;
+          <div>&nbsp;</div><div>&nbsp;</div><div>&nbsp;</div>
+        </div>
+      </div>
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-body">
+            <div class="places-buttons">
+              <div class="row">
+                <div class="col-md-6 ml-auto mr-auto text-center">
+                  <h3 class="card-title">
+                   이상값 탐색 자료
+                    <p class="category"></p>
+                  </h3>
+                </div>
+              </div>
+              <div class="row">
+                
+              </div>
+              <div class="row">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="card">
+            <div class="card-header">
+              <h3 class="card-title">한국 기온 이상값 탐색을 위한 그래프</h3>
+            </div>
+            <div class="card-body">
+              <img src = '../../static/assets/img/korea_temp_outlier_check.png' onclick = "window.open(this.src)">
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="card">
+            <div class="card-header">
+              <h3 class="card-title">자연재해 사망자 수 감소에 관한 뉴스</h3>
+            </div>
+            <div class="card-body" style = "text-align: center;">
+              <img src = '../../static/assets/img/news_death_dec.png' onclick = "window.open(this.src)">
+            </div>
+          </div>
+        </div>
+      
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="card">
+          <div class="card-header">
+            <h3 class="card-title">세계 자연재해 사망자 수 이상값 탐색</h3>
+          </div>
+          <div class="card-body">
+            <img src = '../../static/assets/img/world_disa_outliers_check.png' onclick = "window.open(this.src)">
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="card">
+          <div class="card-header">
+            <h3 class="card-title">탄소배출량과 함께 자연재해 사망자 이상값 확인</h3>
+          </div>
+          <div class="card-body">
+            <img src = '../../static/assets/img/world_disa_outliers_withEmis.png' onclick = "window.open(this.src)">
+          </div>
+        </div>
+      </div>
+      </div>
+  </div>
+
+{% endblock content %}
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}{% endblock javascripts %}

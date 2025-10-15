@@ -1,0 +1,143 @@
+{% extends "layouts/base.html" %}
+
+{% block title %} Dashboard {% endblock %}
+
+<!-- Specific Page CSS goes HERE  -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+
+
+    <div class="content">
+        <div class="row">
+            <div class="col-lg-6 col-md-12">
+                <div class="card">
+                    <div class="card-header ">
+                        <h4 class="card-title" align="center">📌 1.5도와 2도의 차이</h4>
+                        <img src="/static/assets/img/1.5도와 2도의 차이.png" width="1000px" height="700px" align="center">
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-12">
+                <div class="card ">
+                    <div class="card-header">
+                        <h4 class="card-title" align="center">📌 기후변화로 인한 경제적 피해</h4>
+                        <img src="/static/assets/img/기후변화로 인한 경제적 피해.png" width="1000px" height="700px" align="center">
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-12">
+                <div class="card ">
+                    <div class="card-header">
+                        <h4 class="card-title" align="center">📌 원인 - 결과</h4>
+                        <img src="/static/assets/img/wc1.png" width="400px" height="400px" align="center">
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-12">
+                <div class="card ">
+                    <div class="card-header">
+                        <h4 class="card-title" align="center">📌 해결방안</h4>
+                        <img src="/static/assets/img/wc2.png" width="400px" height="400px" align="center">
+                    </div>
+                </div>
+            </div>
+            <div class="col-12">
+                <div class="card card-chart">
+                    <div class="card-header">
+                        <h4 class="card-title" align="center">📌 우리나라의 기온 변화</h4>
+                        <img src="/static/assets/img/년도별 기온변화 그래프.PNG" width="1000px" height="700px" align="center">
+                    </div>
+
+<!--                            <div class="col-sm-6">-->
+<!--                                <div class="btn-group btn-group-toggle float-right" data-toggle="buttons">-->
+<!--                                    <label class="btn btn-sm btn-primary btn-simple active" id="0">-->
+<!--                                        <input type="radio" name="options" checked>-->
+<!--                                        <span class="d-none d-sm-block d-md-block d-lg-block d-xl-block">Average Temperature</span>-->
+<!--                                        <span class="d-block d-sm-none">-->
+<!--                        <i class="tim-icons icon-single-02"></i>-->
+<!--                    </span>-->
+<!--                                    </label>-->
+<!--                                    <label class="btn btn-sm btn-primary btn-simple" id="1">-->
+<!--                                        <input type="radio" class="d-none d-sm-none" name="options">-->
+<!--                                        <span class="d-none d-sm-block d-md-block d-lg-block d-xl-block">Lowest Temperature</span>-->
+<!--                                        <span class="d-block d-sm-none">-->
+<!--                        <i class="tim-icons icon-gift-2"></i>-->
+<!--                    </span>-->
+<!--                                    </label>-->
+<!--                                    <label class="btn btn-sm btn-primary btn-simple" id="2">-->
+<!--                                        <input type="radio" class="d-none" name="options">-->
+<!--                                        <span class="d-none d-sm-block d-md-block d-lg-block d-xl-block">Highest Temperature</span>-->
+<!--                                        <span class="d-block d-sm-none">-->
+<!--                        <i class="tim-icons icon-tap-02"></i>-->
+<!--                    </span>-->
+<!--                                    </label>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    <div class="card-body">-->
+<!--                        <div class="chart-area">-->
+<!--                            <canvas id="chartBig1"></canvas>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+    </div>
+        <div class="row">
+            <div class="col-lg-4">
+                <div class="card card-chart">
+                    <div class="card-header">
+                        <h5 class="card-category">Total Energy</h5>
+                        <h3 class="card-title"><i class="tim-icons icon-bell-55 text-primary"></i> Emissions </h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="chart-area">
+                            <canvas id="chartLinePurple"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="card card-chart">
+                    <div class="card-header">
+                        <h5 class="card-category">Total LULUCF</h5>
+                        <h3 class="card-title"><i class="tim-icons icon-delivery-fast text-info"></i> Emissions </h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="chart-area">
+                            <canvas id="CountryChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="card card-chart">
+                    <div class="card-header">
+                        <h5 class="card-category">Total Industry</h5>
+                        <h3 class="card-title"><i class="tim-icons icon-send text-success"></i> Emissions </h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="chart-area">
+                            <canvas id="chartLineGreen"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+{% endblock content %}
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}
+
+<script>
+    $(document).ready(function () {
+        // Javascript method's body can be found in assets/js/demo_2.js
+        demo_2.initDashboardPageCharts();
+
+    });
+</script>
+
+{% endblock javascripts %}
