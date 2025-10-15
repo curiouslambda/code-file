@@ -1,0 +1,325 @@
+{%load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>앞범퍼/뒷범퍼 수리견적</title>
+        <!-- Bootstrap icons-->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href = "{% static 'static01/css/styles.css' %}" rel = "stylesheet"/>
+        <style>
+        *{
+            padding: 0px;
+            margin: 0px;
+            }
+        .container00 {
+            display: flex;
+            height: 100%;
+            flex-direction: column;
+
+        }
+
+        .image-upload {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .button {
+            display: flex;
+            justify-content: center;
+        }
+
+        label {
+            cursor: pointer;
+            font-size: 1em;
+        }
+
+        #chooseFile {
+            visibility: hidden;
+        }
+
+        .fileContainer {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .fileInput {
+            display: flex;
+            align-items: center;
+            border-bottom: solid 2px black;
+            width: 60%;
+            height: 30px;
+        }
+
+        #fileName {
+            margin-left: 5px;
+        }
+
+        .buttonContainer {
+            width: 200px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-left: 10px;
+            background-color: #14279B;
+            color: white;
+            border-radius: 30px;
+            padding: 10px;
+            font-size: 0.8em;
+
+            cursor: pointer;
+        }
+
+        .image-show {
+            z-index: -1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+
+        .img {
+            position: absolute;
+        }
+        footer{
+            position:static;
+            left:0px;
+            bottom:0px;
+            width: 100%;
+        }
+
+        .buttonContainer button{
+            color: white;
+            background-color: #14279B;
+            border: 0;
+            }
+
+        select{
+            width: 200px;
+            height: 32px;
+            font-size: 15px;
+            border: 1px solid black;
+            border-radius: 15px;
+            }
+
+        .result_overlay {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            left: 0;
+            top: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(1.5px);
+            -webkit-backdrop-filter: blur(1.5px);
+        }
+
+        .result_window {
+            background: white;
+            backdrop-filter: blur(13.5px);
+            -webkit-backdrop-filter: blur(13.5px);
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            width: 600px;
+            height: 300px;
+            position: relative;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .loading {
+            width:100%;
+            height:100%;
+            position:fixed;
+            left:0px;
+            top:0px;
+            z-index:1000;
+            text-align: center;
+            display: none;
+        }
+
+        .loadingImg {
+            position: absolute;
+            top: 40%;
+        }
+        </style>
+    </head>
+    <body>
+        <!-- Navigation-->
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container px-4 px-lg-5">
+                <a class="navbar-brand" href="#!">수리하삼</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
+                        <li class="nav-item"><a class="nav-link" onclick="location.href='{%url 'index'%}'">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#!">About</a></li>
+                        <form method="post">{%csrf_token%}
+                            <li class="nav-item"><a class="nav-link" type=submit onclick="location.href='{%url 'logout'%}'" style="color:#14279B;">Logout</a></li>
+                        </form>
+                    </ul>
+                    <form class="d-flex">
+                        <button class="btn btn-outline-dark" type="button" onclick="admin()">
+                            <img src="https://cdn-icons-png.flaticon.com/512/3934/3934107.png" width="25px">
+                            Admin
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </nav>
+        <!-- Header-->
+        <header class="bg-dark py-5">
+            <div class="container px-4 px-lg-5 my-5">
+                <div class="text-center text-white">
+                    <h1 class="display-4 fw-bolder">앞범퍼/뒷범퍼 수리 견적 확인하기</h1>
+                    <p class="lead fw-normal text-white-50 mb-0">차량 사진을 업로드하고 아래 버튼을 눌러주세요.</p>
+                </div>
+            </div>
+        </header>
+        <!-- Section-->
+        <br>
+        <div class="container00">
+            <div class="image-upload" id="image-upload">
+                <form method="post" action="{%url 'main01'%}" enctype="multipart/form-data" id="submit">{%csrf_token%}
+
+                    <div class="button">
+                        <label for="chooseFile">
+                            <div class="buttonContainer">사진 선택하기</div>
+                        </label>
+                    </div>
+
+                    <input type="file" id="chooseFile" name="chooseFile" accept="image/*" onchange="loadFile(this)">
+
+                    <div class="fileContainer">
+                        <div class="fileInput">
+                            <p>FILE NAME: </p>
+                            <p id="fileName"></p>
+                        </div>
+                        <div class="buttonContainer">
+                            <div class="submitButton" id="submitButton">사진 업로드</div>
+                        </div>
+                    </div>
+
+                    <div style="width:40%; height:500px; position:relative; left:30%;">
+                        <div class="image-show" id="image-show"></div>
+                    </div>
+
+                    <br>
+
+                    <div style="text-align:center;">
+                        <select name="car_name">
+                            <option value="올뉴모닝">차량모델선택</option>
+                            {%for data in car_name_list%}
+                                <option>{{data}}</option>
+                            {%endfor%}
+                        </select>
+                        <br><br>
+                        <div class="buttonContainer" style="margin:auto;">
+                            <button class="submitButton" type="submit" form="submit" onclick="loading();">수리견적 확인하기</button>
+                        </div>
+                    </div>
+
+                </form>
+            </div><br>
+            {%if status == 'ok'%}
+                <div class="result_overlay">
+                        <div class="result_window">
+                            <br><br>
+                            <h2>수리예상금액 : {{result}}원</h2>
+                            <h3>차량모델 : {{car_name}}</h3>
+                            <br><br>
+                            <p>*실제수리비용과 다를 수 있습니다. 정확한 수리비용은 정비소에 문의해주세요.</p>
+                            <div class="buttonContainer" style="margin:auto;">
+                                <button class="submitButton" onclick="closeResult();">확인</button>
+                            </div>
+                        </div>
+                </div>
+            {%endif%}
+            <div class="loading" id="loading">
+                <img class="loadingImg" src="https://t1.daumcdn.net/cfile/tistory/233F6D505786DA870A" width="50px">
+            </div>
+        </div>
+        <br>
+
+
+        <!-- Footer-->
+        <footer class="py-5 bg-dark">
+            <div class="container"><p class="m-0 text-center text-white">Copyright &copy; Your Website 2022</p></div>
+        </footer>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="{% static 'static01/js/scripts.js'%}"></script>
+        <script>
+            var submit = document.getElementById('submitButton');
+            submit.onclick = showImage;     //Submit 버튼 클릭시 이미지 보여주기
+
+            function showImage() {
+                var newImage = document.getElementById('image-show').lastElementChild;
+                newImage.style.visibility = "visible";
+
+                document.getElementById
+            }
+
+
+            function loadFile(input) {
+                var file = input.files[0];
+
+                var name = document.getElementById('fileName');
+                name.textContent = file.name;
+
+                var newImage = document.createElement("img");
+                newImage.setAttribute("class", 'img');
+
+                newImage.src = URL.createObjectURL(file);
+
+                newImage.style.width = "500px";
+                newImage.style.height = "500px";
+                newImage.style.visibility = "hidden";   //버튼을 누르기 전까지는 이미지 숨기기
+                newImage.style.objectFit = "contain";
+
+                var container = document.getElementById('image-show');
+                container.appendChild(newImage);
+            };
+        </script>
+        <script>
+            function loading(){
+                var loading = document.getElementById("loading");
+
+                loading.style.display = "block";
+                document.body.style.overflowY = "hidden";
+
+            }
+
+            function closeResult(){
+                window.location.href="{%url 'main01'%}";
+            }
+        </script>
+
+        {%if request.user.is_superuser%}
+            <script>
+                function admin(){
+                    window.location.href='{%url 'admin01'%}';
+                    }
+            </script>
+        {%else%}
+            <script>
+                function admin(){
+                    alert("관리자 계정으로 로그인 하십시오.");
+                    }
+            </script>
+        {%endif%}
+    </body>
+</html>

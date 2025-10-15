@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/car_break.iml" filepath="$PROJECT_DIR$/.idea/car_break.iml" />
+      <module fileurl="file://$USER_HOME$/engineering/.idea/engineering.iml" filepath="$USER_HOME$/engineering/.idea/engineering.iml" />
+      <module fileurl="file://$USER_HOME$/workspaces/workspace_django/.idea/workspace_django.iml" filepath="$USER_HOME$/workspaces/workspace_django/.idea/workspace_django.iml" />
+    </modules>
+  </component>
+</project>

@@ -1,0 +1,326 @@
+{%load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>내 주변 정비소</title>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=dd814cd8c09cb0d6fe824b8ab473ed93"></script>
+        <link href = "{% static 'static01/css/styles.css' %}" rel = "stylesheet"/>
+        <!-- Bootstrap icons-->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href = "{% static 'static01/css/styles.css' %}" rel = "stylesheet"/>
+        <style>
+        *{
+            padding: 0px;
+            margin: 0px;
+            }
+        .service{
+            position: relative;
+            width: 400px;
+            left: 50%;
+            top: 400px;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            }
+        select{
+            width: 400px;
+            height: 32px;
+            font-size: 15px;
+            border: 1px solid black;
+            border-radius: 15px;
+            }
+        footer{
+            position:static;
+            left:0px;
+            bottom:0px;
+            width: 100%;
+            }
+        .check{
+            width: 300px;
+            height: 40px;
+            font-size: 15px;
+            color: white;
+            background-color: #14279B;
+            border: none;
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            border-radius: 5px;
+            cursor: pointer;
+            }
+        #center{
+            width:900px;
+            height:80px;
+            margin:auto;
+            margin-top:30px;
+            text-align: center
+        }
+        #map{
+             width:900px;
+             height:600px;
+             margin:auto;
+             margin-bottom:30px
+        }
+        @media ( max-width: 480px ) {
+                #center {
+                  width: auto;
+                }
+                #map {
+                  float: none;
+                  width: auto;
+                }
+                #list {
+                  float: none;
+                  width: auto;
+                }
+        }
+        </style>
+    </head>
+    <body>
+        <!-- Navigation-->
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container px-4 px-lg-5">
+                <a class="navbar-brand" href="#!">수리하삼</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
+                        <li class="nav-item"><a class="nav-link" onclick="location.href='{%url 'index'%}'">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#!">About</a></li>
+                        <form method="post">{%csrf_token%}
+                            <li class="nav-item"><a class="nav-link" type=submit onclick="location.href='{%url 'logout'%}'" style="color:#14279B;">Logout</a></li>
+                        </form>
+                    </ul>
+                    <form class="d-flex">
+                        <button class="btn btn-outline-dark" type="button" onclick="admin();">
+                            <img src="https://cdn-icons-png.flaticon.com/512/3934/3934107.png" width="25px">
+                            Admin
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </nav>
+        <!-- Header-->
+        <header class="bg-dark py-5">
+            <div class="container px-4 px-lg-5 my-5">
+                <div class="text-center text-white">
+                    <h1 class="display-4 fw-bolder">내 주변 정비소 찾기</h1>
+                    <p class="lead fw-normal text-white-50 mb-0">현재 내 위치를 기준으로 5km이내 정비소를 안내합니다.
+                    <br>마커를 클릭하면 정비소 정보를 확인할 수 있습니다. </p>
+                </div>
+            </div>
+        </header>
+
+        <!-- Section-->
+        <p id="lat" type ="text"></p>
+        <p id="lon" type ="text"></p>
+
+        <div id='center'>
+            <button id='btn' class = "btn btn-outline-dark mt-auto" type="button" style="width:150px;height:50px;margin:auto">정비소 찾기</button>
+        </div>
+
+        <div id="map"></div>
+
+
+        <div id="list">
+            <p id="new"></p>
+        </div>
+
+
+
+
+
+        <script>
+             var mapContainer = document.getElementById('map'), // 지도를 표시할 div
+                mapOption = {
+                    center: new kakao.maps.LatLng(37.503349112980715, 127.049869094305), // 지도의 중심좌표
+                    level: 5 // 지도의 확대 레벨
+                };
+
+             var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
+
+             var x = document.getElementById("lat");
+             var y = document.getElementById("lon");
+
+             window.onload = function getLocation() {
+                 if(navigator.geolocation) {
+                     navigator.geolocation.getCurrentPosition(
+                         function successCallback(position) {
+                             x.value = position.coords.latitude;
+                             y.value = position.coords.longitude;
+                         }, function errorCallback() {
+                             x.value = 37.503349112980715;
+                             y.value = 127.049869094305;
+                         }
+                     )
+                 }
+
+                 $.ajax({
+                    type: 'GET',
+                    url: 'click_log',
+                    success: function(response){
+
+                        for (var i = 0; i < response['list'].length; i++) {
+
+                            var info = document.createElement("p") // <p> 생성
+                            info.setAttribute("id", 'new') // id 요소 추가
+                            info.setAttribute("style",
+                            "width:900px;margin:auto;padding:10px;border-radius:10px") // style 지정
+
+                            list = response['list'][i]
+                            info.innerHTML = "<b>" + list.s_name + "</b>"
+                                + "<br>" + "<font size=2>" + "자동차정비업체종류 : " + list.s_type + "급"
+                                + "<br>주소 : " + list.address
+                                + "<br>운영시작시간 : " + list.open_time
+                                + "&nbsp&nbsp&nbsp&nbsp&nbsp운영종료시간 : " + list.close_time
+                                + "<br>전화번호 : " + list.phone_number
+                                + "</fonts>" + "<hr>"
+
+                            var list = document.getElementById('list');
+                            var p = document.getElementById('new');
+                            list.insertBefore(info, p); // list의 new 앞에 추가
+                        }
+                    }
+                })
+             }
+
+
+             var btn = document.getElementById('btn')
+             btn.addEventListener('click', show_repairs) // 버튼을 누르면 show_repairs함수 실행
+
+             function show_repairs(){
+                 var input_lat = document.querySelector('p[id = "lat"]');
+                 var input_lon = document.querySelector('p[id = "lon"]');
+                 console.log(input_lat.value);
+                 console.log(input_lon.value);
+
+                 $.ajax({
+                     url: 'show_repairs',
+                     type: 'GET',
+                     data:{
+                         'input_lat': input_lat.value,
+                         'input_lon': input_lon.value
+                     },
+                     success: function(data){ //data: 비동기 통신으로 받은 데이터
+                         console.log(data['list'])
+
+                         // 마커를 표시할 위치데이터
+                         var positions = data['list'];
+
+                         var mapContainer = document.getElementById('map'), // 지도를 표시할 div
+                            mapOption = {
+                                center: new kakao.maps.LatLng(input_lat.value, input_lon.value), // 지도의 중심좌표
+                                level: 5 // 지도의 확대 레벨
+                         };
+                         var map = new kakao.maps.Map(mapContainer, mapOption); // 지도 생성
+
+                         var imageSrc= "http://t1.daumcdn.net/mapjsapi/images/marker.png"; // 마커의 이미지 주소
+                         var imageSize = new kakao.maps.Size(24, 35); // 마커 이미지의 크기
+                         var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize); // 마커 이미지를 생성
+
+                         for (var i = 0; i < positions.length; i ++) {
+                             // 마커를 생성
+                             var marker = new kakao.maps.Marker({
+                                 map: map, // 마커를 표시할 지도
+                                 position: new kakao.maps.LatLng(positions[i].좌표[1], positions[i].좌표[0]), // 마커를 표시할 위치
+                                 image : markerImage // 마커 이미지
+                             });
+
+                             var overImage = new kakao.maps.MarkerImage( // 마우스를 올릴시 확대된 마커 이미지
+                                "http://t1.daumcdn.net/mapjsapi/images/marker.png",
+                                new kakao.maps.Size(30, 42)
+                             );
+
+                             var content = positions[i]
+
+                             // 클로저를 작성하지 않으면 마지막 마커에만 이벤트 적용됨
+                             kakao.maps.event.addListener(marker, 'mouseover', mouseOverListener(map, marker, overImage));
+                             kakao.maps.event.addListener(marker, 'mouseout', mouseOutListener(marker));
+                             kakao.maps.event.addListener(marker, 'click', clickListener(marker, content));
+                         }
+
+                         // 마우스오버시 마커 이미지 변경
+                         function mouseOverListener(map, marker, overImage) {
+                            return function() {
+                            marker.setImage(overImage);
+                            };
+                         }
+
+                         // 마우스아웃시 마커 이미지
+                         function mouseOutListener(marker) {
+                             return function() {
+                                 marker.setImage(markerImage);
+                             };
+                         }
+
+                         // 마커 클릭시
+                         function clickListener(marker, content) {
+                            return function() {
+                                var info = document.createElement("p") // <p> 생성
+                                info.setAttribute("id", 'new') // id 요소 추가
+                                info.setAttribute("style",
+                                "width:900px;margin:auto;padding:10px;border-radius:10px") // style 지정
+
+
+
+                                info.innerHTML = "<b>" + content.자동차정비업체명 + "</b>"
+                                    + "<br>" + "<font size=2>" + "자동차정비업체종류 : " + content.자동차정비업체종류 + "급"
+                                    + "<br>주소 : " + content.주소
+                                    + "<br>운영시작시간 : " + content.운영시작시각
+                                    + "&nbsp&nbsp&nbsp&nbsp&nbsp운영종료시간 : " + content.운영종료시각
+                                    + "<br>전화번호 : " + content.전화번호 + "</fonts>" + "<hr>"
+
+                                var list = document.getElementById('list');
+                                var p = document.getElementById('new');
+                                list.insertBefore(info, p); // list의 new 앞에 추가
+
+                                while(list.children.length > 3) {
+                                    list.removeChild(list.lastChild); //마지막 노드를 삭제
+                                }
+                                $.ajax({
+                                     url: 'marker_click',
+                                     type: 'GET',
+                                     data:{
+                                         's_name' : content.자동차정비업체명,
+                                         's_id' : content.id
+                                     },
+                                     success: function(){
+                                     }
+                                })
+                            }
+                         }
+                     }
+                 });
+             }
+        </script>
+
+
+        <!-- Footer-->
+        <footer class="py-5 bg-dark">
+            <div class="container"><p class="m-0 text-center text-white">Copyright &copy; Your Website 2022</p></div>
+        </footer>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="{% static 'static01/js/scripts.js'%}"></script>
+
+        {%if request.user.is_superuser%}
+            <script>
+                function admin(){
+                    window.location.href='{%url 'admin01'%}';
+                    }
+            </script>
+        {%else%}
+            <script>
+                function admin(){
+                    alert("관리자 계정으로 로그인 하십시오.");
+                    }
+            </script>
+        {%endif%}
+    </body>
+</html>

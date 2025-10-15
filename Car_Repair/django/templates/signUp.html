@@ -1,0 +1,209 @@
+{%load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>회원가입</title>
+        <!-- Bootstrap icons-->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href = "{% static 'static01/css/styles.css' %}" rel = "stylesheet"/>
+        <style>
+        *{
+            padding: 0px;
+            margin: 0px;
+            }
+        .signUp{
+            position: relative;
+            width: 45%;
+            left: 45%;
+            top: 150px;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            }
+<!--        .user{-->
+<!--            position: relative;-->
+<!--            width: 40%;-->
+<!--            left: 50%;-->
+<!--            top: 300px;-->
+<!--            transform: translate(-50%, -50%);-->
+<!--            }-->
+        input{
+            width: 300px;
+            height: 32px;
+            font-size: 15px;
+            border: 0;
+            border-radius: 15px;
+            outline: none;
+            background-color: #E6E6E6;
+            }
+        .button{
+            background-color: #14279B;
+            border: none;
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 12px;
+            cursor: pointer;
+            height: 30px;
+            border-radius: 5px;
+            width: 80px;
+            }
+        table{
+            text-align: center;
+            margin: auto;
+            position: relative;
+            top: 50px;
+            bottom: 50px;
+            }
+
+        tr{
+            height: 50px;
+            }
+        footer{
+            position:static;
+            left:0px;
+            bottom:0px;
+            width: 100%;
+            }
+
+        #message{
+            color: red;
+            }
+        </style>
+    </head>
+    <body>
+        <!-- Navigation-->
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container px-4 px-lg-5">
+                <a class="navbar-brand" href="#!">수리하삼</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
+                        <li class="nav-item"><a class="nav-link" href="javascript:login();">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="javascript:login();">About</a></li>
+                        <form method="post">{%csrf_token%}
+                            <li class="nav-item"><a class="nav-link" type=submit onclick="location.href='{%url 'login'%}'" style="color:#14279B;">Login</a></li>
+                        </form>
+                    </ul>
+                    <form class="d-flex">
+                        <button class="btn btn-outline-dark" type="button" onclick="login();">
+                            <img src="https://cdn-icons-png.flaticon.com/512/3934/3934107.png" width="25px">
+                            Admin
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </nav>
+        <!-- Header-->
+        <header class="bg-dark py-5">
+            <div class="container px-4 px-lg-5 my-5">
+                <div class="text-center text-white">
+                    <h1 class="display-4 fw-bolder">회원 가입</h1>
+                    <p class="lead fw-normal text-white-50 mb-0">모든 서비스는 회원에 한해 제공됩니다.<br>아래 입력칸을 모두 채워주십시오.</p>
+                </div>
+            </div>
+        </header>
+        <!-- Section-->
+        <div class="user">
+        <form method="POST"> {%csrf_token%}
+            <table>
+                <col width="400px">
+
+                <tbody>
+                    <tr>
+                        <td><b>FIRST NAME</b></td>
+                    </tr>
+                    <tr>
+			<td><input type="text" name="firstname" oninput="handleOnInput(this)"><br><br>
+				<p>▲영문으로 입력해 주세요.</p>
+			</td>
+                    </tr>
+                    <tr>
+                        <td><b>LAST NAME</b></td>
+                    </tr>
+                    <tr>
+			<td><input type="text" name="lastname" oninput="handleOnInput(this)"><br><br>
+				<p>▲영문으로 입력해 주세요.</p>
+			</td>
+                    </tr>
+                    <tr>
+                        <td><b>PHONE NUMBER</b></td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" name="phone_number"><br><br>▲'-'를 포함해서 입력해주세요.
+                            <br><p id="message">{{phone_number_error}}{{phone_number_error02}}</p></td>
+                    </tr>
+                    <tr>
+                        <td><b>ID</b></td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" name="username">
+                            <br><p id="message">{{username_error}}</p></td>
+                    </tr>
+                    <tr>
+                        <td><b>E-MAIL</b></td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" name="email">
+                        <p id="message">{{email_error}}</p></td>
+                    </tr>
+                    <tr>
+                        <td><b>PASSWORD</b></td>
+                    </tr>
+                    <tr>
+                        <td><input type="password" name="password1"><br><br>▲8자 이상으로 문자, 숫자, 특수문자(!,@,#,$,%,&,*,?)를<br>모두 사용해주세요.
+                            <br><p id="message">{{pw_error01}}</p>
+                            <br></td>
+                    </tr>
+                    <tr>
+                        <td><b>PASSWORD CONFIRMATION</b></td>
+                    </tr>
+                    <tr>
+                        <td><input type="password" name="password2">
+                            <br><p id="message">{{pw_error02}}</p>
+                            <br><br></td>
+                    </tr>
+
+                    <tr>
+                        <td><p id="message">{{empty_error}}</p>
+                            <a href="javascript:status_message();">
+                            <input type="submit" value="가입하기" class="button" style="width:300px; font-size:15px;"></a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </form>
+    </div><br><br><br><br>
+        <!-- Footer-->
+        <footer class="py-5 bg-dark">
+            <div class="container"><p class="m-0 text-center text-white">Copyright &copy; Your Website 2022</p></div>
+        </footer>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="{% static 'static01/js/scripts.js'%}"></script>
+        <script>
+            function login(){
+                alert("로그인 후 이용 가능합니다.");
+                }
+        </script>
+	<script>
+	    function handleOnInput(e) {
+ 	        e.value = e.value.replace(/[^A-Za-z]/ig, '');
+		}
+	</script>
+
+        {% if success == "ok" %}
+            <script>
+                alert("회원가입이 완료되었습니다.");
+                window.location.href='{%url 'login'%}';
+            </script>
+        {% endif %}
+    </body>
+</html>

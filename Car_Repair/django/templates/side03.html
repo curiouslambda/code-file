@@ -1,0 +1,323 @@
+{%load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>정비소 검색</title>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/paginationjs/2.1.4/pagination.min.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/paginationjs/2.1.4/pagination.css"/>
+        <!-- Bootstrap icons-->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href = "{% static 'static01/css/styles.css' %}" rel = "stylesheet"/>
+        <style>
+        *{
+            padding: 0px;
+            margin: 0px;
+            }
+        .service{
+            position: relative;
+            width: 400px;
+            left: 50%;
+            top: 400px;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            }
+        footer{
+            position:static;
+            left:0px;
+            bottom:0px;
+            width: 100%;
+            }
+        .check{
+            width: 300px;
+            height: 40px;
+            font-size: 15px;
+            color: white;
+            background-color: #14279B;
+            border: none;
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            border-radius: 5px;
+            cursor: pointer;
+            }
+        #search_form {
+            padding: 70px;
+         }
+        .selectbox{
+            width:40%;
+            height: 50px;
+            border-radius: 5px 5px 5px 5px;
+            border-width: 3px;
+            border-color: #14279B;
+            font-size: 18px;
+            }
+        .searchbox{
+            width:87%;
+            height: 60px;
+            border-width: 5px;
+            margin-top:10px;
+            font-size: 25px;
+            }
+        .div_search{
+            width:600px;
+            margin:auto;
+            }
+        .div_select{
+            width:600px;
+            margin:auto;
+        }
+        .send_btn{
+            width: 55px;
+            height: 60px;
+            position: absolute;
+            background: #14279B;
+            broder: none;
+            font-weight: bold;
+            color: white;
+            font-size: 20px;
+            margin-top:10px;
+        }
+        .searchbox:focus {
+            outline : none ;
+        }
+        .table {
+             padding: 10px;
+             border-bottom: 1px solid gray;
+        }
+        .result_cnt {
+            width:900px;
+            text-align:right;
+            margin:auto;
+            margin-bottom:10px
+        }
+        section {
+            width:900px;
+            height:700px;
+            margin:auto;
+            display:none;
+            margin-bottom:20px;
+        }
+        #pagination {
+            width:900px;
+            margin:auto;
+            text-align:center;
+            padding:auto
+        }
+
+        @media ( max-width: 480px ) {
+            .div_search{
+                width: auto;
+            }
+            .div_select{
+                width: auto;
+            }
+            #search_form {
+                padding: 50px;
+            }
+            .result_cnt {
+                width: auto;
+                text-align:right;
+                margin:auto;
+                margin-bottom:10px
+            }
+            section {
+                width:auto;
+            }
+            th, td {
+             font-size: 10px;
+            }
+
+        }
+        </style>
+
+
+
+    </head>
+    <body>
+        <!-- Navigation-->
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container px-4 px-lg-5">
+                <a class="navbar-brand" href="#!">수리하삼</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
+                        <li class="nav-item"><a class="nav-link" onclick="location.href='{%url 'index'%}'">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#!">About</a></li>
+                        <form method="post">{%csrf_token%}
+                            <li class="nav-item"><a class="nav-link" type=submit onclick="location.href='{%url 'logout'%}'" style="color:#14279B;">Logout</a></li>
+                        </form>
+                    </ul>
+                    <form class="d-flex">
+                        <button class="btn btn-outline-dark" type="button" onclick="admin()">
+                            <img src="https://cdn-icons-png.flaticon.com/512/3934/3934107.png" width="25px">
+                            Admin
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </nav>
+        <!-- Header-->
+        <header class="bg-dark py-5">
+            <div class="container px-4 px-lg-5 my-5">
+                <div class="text-center text-white">
+                    <h1 class="display-4 fw-bolder">정비소 검색</h1>
+                    <p class="lead fw-normal text-white-50 mb-0">전국 정비소리스트에서
+                    <br>정비소명 또는 지역명으로 검색 가능합니다. </p>
+                </div>
+            </div>
+        </header>
+        <!-- Section-->
+        <form id="search_form">
+            <div class="div_select">
+
+                <button onclick="reset()" class="btn-reset" title="검색조건 초기화" style="border:none;background-color:white">
+                    <img src="{% static 'static03/images/reset-button.png' %}" style="width:25px;height:25px;border:none;margin-right:10px">
+                </button>
+                <select id="s_type" class="selectbox">
+                    <option value="">정비업체분류</option>
+                    <option value="1">1급</option>
+                    <option value="2">2급</option>
+                    <option value="3">3급</option>
+                    <option value="4">4급</option>
+                </select>
+                <select id="running" class="selectbox" >
+                    <option value="">영업상태</option>
+                    <option value="1">영업</option>
+                    <option value="2">휴업</option>
+                    <option value="3">폐업</option>
+                </select>
+            </div>
+
+            <div class="div_search">
+                <input name="words" class="searchbox" style="border:4px solid #14279B">
+                <button class = "send_btn" type="button" style="border: none">검색&nbsp</button>
+            </div>
+        </form>
+
+
+            <p class="result_cnt"></p>
+            <section class='result'>
+                <table class='table' id="data-container">
+                    <col width="50">
+                    <col width="200">
+                    <col width="350">
+                    <col width="180">
+                    <col width="130">
+                    <thead style="text-align:center;">
+                        <tr>
+                            <th>번호</th>
+                            <th>정비업체명</th>
+                            <th>주소</th>
+                            <th>영업시간</th>
+                            <th>전화번호</th>
+                        </tr>
+                    </thead>
+
+                </table>
+                <br>
+                <div id="pagination"></div>
+            </section>
+
+
+        <!-- Footer-->
+        <footer class="py-5 bg-dark">
+            <div class="container"><p class="m-0 text-center text-white">Copyright &copy; Your Website 2022</p></div>
+        </footer>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="{% static 'static01/js/scripts.js'%}"></script>
+
+        {%if request.user.is_superuser%}
+            <script>
+                function admin(){
+                    window.location.href='{%url 'admin01'%}';
+                    }
+            </script>
+        {%else%}
+            <script>
+                function admin(){
+                    alert("관리자 계정으로 로그인 하십시오.");
+                    }
+            </script>
+        {%endif%}
+
+
+        <script>
+            $(".send_btn").click(function() {           // 검색버튼 클릭시 실행
+                $(".result").css("display", "block");   // 검색 목록이 보인다.
+                let container = $('#pagination');
+                container.pagination({                  // pagination 생성
+                    dataSource: function(done){         // pagination 할 데이터 -> ajax로 받아옴
+                        var words = document.querySelector('input[name = "words"]').value;
+                        var s_type = document.getElementById("s_type").value;
+                        var running = document.getElementById("running").value;
+                        console.log(words);
+                        console.log(s_type);
+                        console.log(running);
+                        $.ajax({
+                            type: 'GET',
+                            url: 'elasticsearch',
+                            data:{
+                                'words': words,
+                                's_type': s_type,
+                                'running': running
+                            },
+                            success: function(response){
+                                console.log(response);
+                                $(".result_cnt").text("검색결과 총 : " + response['list'].length + "개")
+                                done(response['list']);
+                            }
+                        })
+                    },
+                    callback: function (data, pagination) {
+
+                        $("tbody").remove();
+                        var dataHtml = document.createElement("tbody")
+
+                        $.each(data, function (index, item) {
+
+
+                                var tr = document.createElement("tr");
+                                var id = document.createElement("td");
+                                var name = document.createElement("td");
+                                var address = document.createElement("td");
+                                var time = document.createElement("td");
+                                var phone_number = document.createElement("td");
+
+                                id.appendChild(document.createTextNode(item.id));
+                                name.appendChild(document.createTextNode(item.s_name));
+                                address.appendChild(document.createTextNode(item.address));
+                                time.appendChild(document.createTextNode(item.time));
+                                phone_number.appendChild(document.createTextNode(item.phone_number));
+
+                                tr.appendChild(id);
+                                tr.appendChild(name);
+                                tr.appendChild(address);
+                                tr.appendChild(time);
+                                tr.appendChild(phone_number);
+
+                                dataHtml.append(tr);
+
+                        });
+
+                        $("#data-container").append(dataHtml);
+                    }
+                })
+            })
+
+            function reset(){
+                location.reload();
+            }
+
+        </script>
+    </body>
+</html>

@@ -1,0 +1,541 @@
+{%load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>과실비율확인</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+        <!-- Bootstrap icons-->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href = "{% static 'static01/css/styles.css' %}" rel = "stylesheet"/>
+        <style>
+        *{
+            padding: 0px;
+            margin: 0px;
+            }
+        .service{
+            position: relative;
+            width: 400px;
+            left: 50%;
+            top: 400px;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            }
+        select{
+            width: 400px;
+            height: 32px;
+            font-size: 15px;
+            border: 1px solid black;
+            border-radius: 15px;
+            }
+        footer{
+            position:static;
+            left:0px;
+            bottom:0px;
+            width: 100%;
+            }
+        .check{
+            width: 300px;
+            height: 40px;
+            font-size: 15px;
+            color: white;
+            background-color: #14279B;
+            border: none;
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            border-radius: 5px;
+            cursor: pointer;
+            }
+        
+        #showRate{
+            height: auto;
+            width: auto;
+            float: left;
+            margin: 10px 0 0 0;
+            border: 1px solid #000000;
+            background-color: #ffffff;
+            left: 0px;
+            top: 0px;
+            overflow: hidden;
+            position: fixed; 
+            z-index: 10;
+        }
+        #resultClose{
+            float: right; 
+            margin: 5px 2% 5px 0; 
+            padding: 0px 5px 0px 5px; 
+            border: 1px solid #666666; 
+            cursor: pointer;
+        }
+        .tg{
+            border-collapse:collapse;
+            border-color:#aabcfe;
+            border-spacing:0;
+        }
+        .tg td{
+            background-color:#e8edff;
+            border-color:#aabcfe;
+            border-style:solid;
+            border-width:0px;
+            color:#669;
+            font-family:Arial, sans-serif;
+            font-size:14px;
+            overflow:hidden;
+            padding:10px 13px;
+            word-break:normal;
+        }
+        .tg th{
+            background-color:#b9c9fe;
+            border-color:#aabcfe;
+            border-style:solid;
+            border-width:0px;
+            color:#039;
+            font-family:Arial, sans-serif;
+            font-size:14px;
+            font-weight:normal;
+            overflow:hidden;
+            padding:10px 13px;
+            word-break:normal;
+        }
+        .tg .tg-0pky{
+            border-color:inherit;
+            text-align:left;
+            vertical-align:top
+        }
+        
+        .resTop{
+	        width: 100%;
+            float: left;
+            border-top: 1px solid #000000;
+            background-color: #f9f5e8;
+            padding: 5px 0 5px 0;
+            margin: 0 0 0 0;
+        }
+
+        #accLoc{
+            float: center;
+            background-color: #e45692;
+            text-align: center;
+            color: #ffffff;
+            padding: 5px 15px 5px 15px;
+        }
+
+        #accSpe{
+            float: center;
+            background-color: #54b3c7;
+            text-align: center;
+            color: #ffffff;
+            padding: 5px 15px 5px 15px;
+        }
+
+        .resText{
+            padding: 5px 0 5px 0;
+            margin: 0 0 0 10px;
+        }
+        </style>
+
+<script>
+    function getCookie(name) {
+        var cookieValue = null;
+        if (document.cookie && document.cookie !== '') {
+            var cookies = document.cookie.split(';');
+            for (var i = 0; i < cookies.length; i++) {
+                var cookie = jQuery.trim(cookies[i]);
+                // Does this cookie string begin with the name we want?
+                if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                    cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                    break;
+                }
+            }
+        }
+        return cookieValue;
+        }
+        var csrftoken = getCookie('csrftoken');
+</script>
+<script>
+    function changeMainCode() {
+        var mainCode = document.getElementById('selectMainCode').value;
+        // https://www.techiedelight.com/ko/get-value-of-checkbox-with-javascript/
+
+        if (mainCode == 1) {
+            document.getElementById("selectBox1").innerText = "① 사고 장소(차도유형)는 어디였나요?";
+            document.getElementById("selectBox2").innerText = "② 사고 장소(또는 형태)의 특징은 무엇인가요?"
+            document.getElementById("selectBox3").innerHTML = "③ <font style='color:#EA6816;'><strong>자동차 A</strong></font>는 어떻게 진행하였나요?"
+            document.getElementById("selectBox4").innerHTML = "④ <font style='color:#ECE865;'><strong>자동차 B</strong></font>는 어떻게 진행하였나요?"
+        } else if (mainCode == 2) {
+            document.getElementById("selectBox1").innerText = "① 사고 장소(차도유형)는 어디였나요?"
+            document.getElementById("selectBox2").innerText = "② 사고 장소(또는 형태)의 특징은 무엇인가요?"
+            document.getElementById("selectBox3").innerHTML = "③ <font style='color:#EA6816;'><strong>자동차 A</strong></font>는 어떻게 진행하였나요?"
+            document.getElementById("selectBox4").innerHTML = "④ <font style='color:#ECE865;'><strong>자동차 B</strong></font>는 어떻게 진행하였나요?"
+        } else if (mainCode == 3) {
+            document.getElementById("selectBox1").innerText = "① 사고 장소(횡단보도 관련)는 어디였나요?"
+            document.getElementById("selectBox2").innerText = "② 사고 장소(또는 형태)의 특징은 무엇인가요?"
+            document.getElementById("selectBox3").innerText = "③ 사람 A는 어떻게 걸어가고 있었나요?"
+            document.getElementById("selectBox4").innerText = "④ 자동차 B는 어떻게 진행하고 있었나요?"
+        } else if (mainCode == 4) {
+            document.getElementById("selectBox1").innerText = "① 사고 장소(차도유형)는 어디였나요?"
+            document.getElementById("selectBox2").innerText = "② 사고 장소(또는 형태)의 특징은 무엇인가요?"
+            document.getElementById("selectBox3").innerText = "③ 이륜차 A는 어떻게 진행하고 있었나요?"
+            document.getElementById("selectBox4").innerText = "④ 자동차 B는 어떻게 진행하고 있었나요?"
+        } else if (mainCode == 5) {
+            document.getElementById("selectBox1").innerText = "① 사고 장소(차도유형)는 어디였나요?"
+            document.getElementById("selectBox2").innerText = "② 사고 장소(또는 형태)의 특징은 무엇인가요?"
+            document.getElementById("selectBox3").innerText = "③ 자전거 A는 어떻게 진행하고 있었나요?"
+            document.getElementById("selectBox4").innerText = "④ 자동차 B는 어떻게 진행하고 있었나요?"
+        }
+
+        if (mainCode == 1) {
+            $("#selectValue1").find("option").remove().end().append("<option value=''>사고 장소(차도 유형)</option>");
+            $("#selectValue2").find("option").remove().end().append("<option value=''>사고 장소(또는 형태) 특징</option>");
+            $("#selectValue3").find("option").remove().end().append("<option value=''>본인 자동차 A</font></option>");
+            $("#selectValue4").find("option").remove().end().append("<option value=''>상대방 자동차 B</font></option>");
+        } else if (mainCode == 2) {
+            $("#selectValue1").find("option").remove().end().append("<option value=''>사고 장소(차도 유형)</option>");
+            $("#selectValue2").find("option").remove().end().append("<option value=''>사고 장소(또는 형태) 특징</option>");
+            $("#selectValue3").find("option").remove().end().append("<option value=''>본인 자동차 A</font></option>");
+            $("#selectValue4").find("option").remove().end().append("<option value=''>상대방 자동차 B</font></option>");
+        } else if (mainCode == 3) {
+            $("#selectValue1").find("option").remove().end().append("<option value=''>사고 장소(횡단보도 관련)</option>");
+            $("#selectValue2").find("option").remove().end().append("<option value=''>사고 장소(또는 형태) 특징</option>");
+            $("#selectValue3").find("option").remove().end().append("<option value=''>사람 A</option>");
+            $("#selectValue4").find("option").remove().end().append("<option value=''>자동차 B</option>");
+        } else if (mainCode == 4) {
+            $("#selectValue1").find("option").remove().end().append("<option value=''>사고 장소(차도 유형)</option>");
+            $("#selectValue2").find("option").remove().end().append("<option value=''>사고 장소(또는 형태) 특징</option>");
+            $("#selectValue3").find("option").remove().end().append("<option value=''>오토바이 A</option>");
+            $("#selectValue4").find("option").remove().end().append("<option value=''>자동차 B</option>");
+        } else if (mainCode == 5) {
+            $("#selectValue1").find("option").remove().end().append("<option value=''>사고 장소(차도 유형)</option>");
+            $("#selectValue2").find("option").remove().end().append("<option value=''>사고 장소(또는 형태) 특징</option>");
+            $("#selectValue3").find("option").remove().end().append("<option value=''>자전거 A</option>");
+            $("#selectValue4").find("option").remove().end().append("<option value=''>자동차 B</option>");
+        }
+
+        function csrfSafeMethod(method) {
+            // these HTTP methods do not require CSRF protection
+            return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
+        }
+        $.ajaxSetup({
+            beforeSend: function(xhr, settings) {
+                if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+                    xhr.setRequestHeader("X-CSRFToken", csrftoken);
+                }
+            }
+        });
+        $.ajax({
+            type: "POST",
+            url: "/codeA",
+            data: {
+                data: mainCode
+                
+            },
+            success: function(response) {
+                const keys = Object.keys(response);
+                $(keys).each(function(i){
+                    $("#selectValue1").append("<option value='" + keys[i] + "'>" + response[keys[i]] + "</option>");
+                })
+            }
+        });
+    }
+
+    function changeACode(){
+        var mainCode = document.getElementById('selectMainCode').value;
+        var codeA = $("#selectValue1").val();
+
+        if (mainCode == 1) {
+            $("#selectValue2").find("option").remove().end().append("<option value=''>사고 장소(또는 형태) 특징</option>");
+            $("#selectValue3").find("option").remove().end().append("<option value=''>본인 자동차 A</font></option>");
+            $("#selectValue4").find("option").remove().end().append("<option value=''>상대방 자동차 B</font></option>");
+        } else if (mainCode == 2) {
+            $("#selectValue2").find("option").remove().end().append("<option value=''>사고 장소(또는 형태) 특징</option>");
+            $("#selectValue3").find("option").remove().end().append("<option value=''>본인 자동차 A</font></option>");
+            $("#selectValue4").find("option").remove().end().append("<option value=''>상대방 자동차 B</font></option>");
+        } else if (mainCode == 3) {
+            $("#selectValue2").find("option").remove().end().append("<option value=''>사고 장소(또는 형태) 특징</option>");
+            $("#selectValue3").find("option").remove().end().append("<option value=''>사람 A</option>");
+            $("#selectValue4").find("option").remove().end().append("<option value=''>자동차 B</option>");
+        } else if (mainCode == 4) {
+            $("#selectValue2").find("option").remove().end().append("<option value=''>사고 장소(또는 형태) 특징</option>");
+            $("#selectValue3").find("option").remove().end().append("<option value=''>오토바이 A</option>");
+            $("#selectValue4").find("option").remove().end().append("<option value=''>자동차 B</option>");
+        } else if (mainCode == 5) {
+            $("#selectValue2").find("option").remove().end().append("<option value=''>사고 장소(또는 형태) 특징</option>");
+            $("#selectValue3").find("option").remove().end().append("<option value=''>자전거 A</option>");
+            $("#selectValue4").find("option").remove().end().append("<option value=''>자동차 B</option>");
+        }
+
+        $.ajax({
+            type: "POST",
+            url: "/codeB",
+            data: {
+                mainCodeK : mainCode,
+                codeAK : codeA
+            },
+            success: function(response) {
+                const keys = Object.keys(response);
+                $(keys).each(function(i){
+                    $("#selectValue2").append("<option value='" + keys[i] + "'>" + response[keys[i]] + "</option>");
+                })
+            }
+        });
+    }
+
+    function changeBCode(){
+        var mainCode = document.getElementById('selectMainCode').value;
+        var codeA = $("#selectValue1").val();
+        var codeB = $('#selectValue2').val();
+
+        if (mainCode == 1) {
+            $("#selectValue3").find("option").remove().end().append("<option value=''>본인 자동차 A</font></option>");
+            $("#selectValue4").find("option").remove().end().append("<option value=''>상대방 자동차 B</font></option>");
+        } else if (mainCode == 2) {
+            $("#selectValue3").find("option").remove().end().append("<option value=''>본인 자동차 A</font></option>");
+            $("#selectValue4").find("option").remove().end().append("<option value=''>상대방 자동차 B</font></option>");
+        } else if (mainCode == 3) {
+            $("#selectValue3").find("option").remove().end().append("<option value=''>사람 A</option>");
+            $("#selectValue4").find("option").remove().end().append("<option value=''>자동차 B</option>");
+        } else if (mainCode == 4) {
+            $("#selectValue3").find("option").remove().end().append("<option value=''>오토바이 A</option>");
+            $("#selectValue4").find("option").remove().end().append("<option value=''>자동차 B</option>");
+        } else if (mainCode == 5) {
+            $("#selectValue3").find("option").remove().end().append("<option value=''>자전거 A</option>");
+            $("#selectValue4").find("option").remove().end().append("<option value=''>자동차 B</option>");
+        }
+
+        $.ajax({
+            type: "POST",
+            url: "/codeC",
+            data: {
+                mainCodeK : mainCode,
+                codeAK : codeA,
+                codeBK : codeB
+            },
+            success: function(response) {
+                const keys = Object.keys(response);
+                $(keys).each(function(i){
+                    $("#selectValue3").append("<option value='" + keys[i] + "'>" + response[keys[i]] + "</option>");
+                })
+            }
+        });
+    }
+
+    function changeCCode(){
+        var mainCode = document.getElementById('selectMainCode').value;
+        var codeA = $("#selectValue1").val();
+        var codeB = $('#selectValue2').val();
+        var codeC = $('#selectValue3').val();
+
+        if (mainCode == 1) {
+            $("#selectValue4").find("option").remove().end().append("<option value=''>상대방 자동차 B</font></option>");
+        } else if (mainCode == 2) {
+            $("#selectValue4").find("option").remove().end().append("<option value=''>상대방 자동차 B</font></option>");
+        } else if (mainCode == 3) {
+            $("#selectValue4").find("option").remove().end().append("<option value=''>자동차 B</option>");
+        } else if (mainCode == 4) {
+            $("#selectValue4").find("option").remove().end().append("<option value=''>자동차 B</option>");
+        } else if (mainCode == 5) {
+            $("#selectValue4").find("option").remove().end().append("<option value=''>자동차 B</option>");
+        }
+
+        $.ajax({
+            type: "POST",
+            url: "/codeD",
+            data: {
+                mainCodeK : mainCode,
+                codeAK : codeA,
+                codeBK : codeB,
+                codeCK : codeC,
+            },
+            success: function(response) {
+                const keys = Object.keys(response);
+                $(keys).each(function(i){
+                    $("#selectValue4").append("<option value='" + keys[i] + "'>" + response[keys[i]] + "</option>");
+                })
+            }
+        });
+    }
+
+    function getRate(){
+            var mainCode = document.getElementById('selectMainCode').value;
+            var codeA = $("#selectValue1").val();
+            var codeB = $('#selectValue2').val();
+            var codeC = $('#selectValue3').val();
+            var codeD = $('#selectValue4').val();
+            $.ajax({
+                type: "POST",
+                url: "/rate",
+                data: {
+                    mainCodeK : mainCode,
+                    codeAK : codeA,
+                    codeBK : codeB,
+                    codeCK : codeC,
+                    codeDK : codeD
+                },
+                success: function(response) {
+                    const keys = Object.keys(response);
+                    var myRate = response.split(',')[0]
+                    var yourRate = 100 - parseInt(myRate)
+                    var result = document.getElementById("showRate")
+                    var loc = document.getElementById("selectValue1")
+                    var locText = loc.options[loc.selectedIndex].text
+                    var spe = document.getElementById("selectValue2")
+                    var speText = spe.options[spe.selectedIndex].text
+                    var my = document.getElementById("selectValue3")
+                    var myText = my.options[my.selectedIndex].text
+                    var your = document.getElementById("selectValue4")
+                    var yourText = your.options[your.selectedIndex].text
+                    if (result.style.display =='none'){
+                        result.style.display = 'block'
+                    }
+                    else{
+                        result.style.display = 'none'
+                    }
+                    $("#myText").text(myText);
+                    $("#yourText").text(yourText);
+                    $(".tg").find("tbody").find("tr").remove().end().append(
+                        "<tr>" +
+                        "<td class='tg-0pky'>" + myText + "</td>" + 
+                        "<td class='tg-0pky'>" + yourText + "</td>" +
+                        "<td class='tg-0pky'>" + myRate + "</td>" +
+                        "<td class='tg-0pky'>" + yourRate + "</td>"+
+                        "</tr>")
+                }
+            });
+        }
+        function resClose(){
+            var result = document.getElementById("showRate")
+            if (result.style.display =='none'){
+                result.style.display = 'block'
+            }
+            else{
+                result.style.display = 'none'
+            }
+        }
+    </script>
+    </head>
+
+
+
+
+    <body>
+        <!-- Navigation-->
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container px-4 px-lg-5">
+                <a class="navbar-brand" href="#!">수리하삼</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
+                        <li class="nav-item"><a class="nav-link" onclick="location.href='{%url 'index'%}'">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#!">About</a></li>
+                        <form method="post">{%csrf_token%}
+                            <li class="nav-item"><a class="nav-link" type=submit onclick="location.href='{%url 'logout'%}'" style="color:#14279B;">Logout</a></li>
+                        </form>
+                    </ul>
+                    <form class="d-flex">
+                        <button class="btn btn-outline-dark" type="submit" onclick="admin();">
+                            <img src="https://cdn-icons-png.flaticon.com/512/3934/3934107.png" width="25px">
+                            Admin
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </nav>
+        <!-- Header-->
+        <header class="bg-dark py-5">
+            <div class="container px-4 px-lg-5 my-5">
+                <div class="text-center text-white">
+                    <h1 class="display-4 fw-bolder">과실비율 알아보기</h1>
+                    <p class="lead fw-normal text-white-50 mb-0">사고상황에 따른 과실비율을 확인합니다.
+                    <br>정형사고의 기본 과실비율을 안내합니다.</p>
+                </div>
+            </div>
+        </header>
+
+        <div class="service">
+            <p>1. 사고 상대를 선택해주세요.</p>
+            <select id="selectMainCode" onchange="changeMainCode();">
+                <option value="" selected >선택하세요</option>
+                <option value="1" >차 대 차</option>
+                <option value="2" >고속도로</option>
+                <option value="3" >차 대 사람</option>
+                <option value="4" >차 대 이륜차</option>
+                <option value="5" >차 대 자전거</option>
+            </select><br><br><br>
+
+            <div id="selectBox1">2. 사고 장소(차도유형)는 어디였나요?</div>
+            <select id="selectValue1" type="text" onchange="javascript:changeACode();">
+                <option value="">사고 장소(차도 유형)</option>
+            </select><br><br><br>
+
+            <div id="selectBox2">3. 사고 장소(또는 형태)의 특징은 무엇인가요?</div>
+            <select id="selectValue2" type="text" onchange="javascript:changeBCode();">								
+                <option value="">사고 장소(또는 형태) 특징</option>
+            </select><br><br><br>
+            
+            <div id="selectBox3">4. A는 어떻게 진행하였나요?</div>
+            <select id="selectValue3" type="text" onchange="javascript:changeCCode();">								
+                <option value="">자동차 A</option></select><br><br><br>
+            
+            <div id="selectBox4">5. B는 어떻게 진행하였나요?</div>
+            <select id="selectValue4" type="text">							
+                <option value="">자동차 B</option></select>
+            <br><br>
+
+            <input id="select_select_search" type="button" onclick="javascript:getRate();" value="과실비율 확인하기">
+            <div id="showRate" style="display: none; width: 500px;">
+                <div id="resultClose" onclick="javascript:resClose();">X</div>
+                <div class="resTop">
+                    <div id="accLoc">사고 장소(차도 유형)</div>
+                    <div id="myText"></div>
+                    <div id="accSpe">사고 장소(또는 형태) 특징</div>
+                    <div id="yourText"></div>
+                </div>
+                <table class="tg" style="width: 100%;">
+                    <thead>
+                        <tr>
+                            <th class="tg-0pky"><span style="color:#EA6816">A</span>의 진행 유형</th>
+                            <th class="tg-0pky"><span style="color:#ECE865">B</span>의 진행 유형</th>
+                            <th class="tg-0pky"><span style="color:#EA6816">A</span>의 과실 비율</th>
+                            <th class="tg-0pky"><span style="color:#ECE865">B</span>의 과실 비율</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                           <div></div>
+                        </tr>
+                    </tbody>
+                </table>
+                <br>
+                <div style="font-size: small;">본 과실비율은 정형사고의 기본 과실비율입니다.<br>사고 당시의 상황에 따라 실제 적용 시 상이할 수 있습니다.</div>
+            </div>
+        </div><br><br><br><br><br><br>
+
+        <!-- Footer-->
+        <footer class="py-5 bg-dark">
+            <div class="container"><p class="m-0 text-center text-white">Copyright &copy; Your Website 2022</p></div>
+        </footer>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="{% static 'static01/js/scripts.js'%}"></script>
+        {%if request.user.is_superuser%}
+            <script>
+                function admin(){
+                    window.location.href='{%url 'admin01'%}';
+                    }
+            </script>
+        {%else%}
+            <script>
+                function admin(){
+                    alert("관리자 계정으로 로그인 하십시오.");
+                    }
+            </script>
+        {%endif%}
+    </body>
+</html>

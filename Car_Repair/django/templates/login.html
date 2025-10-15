@@ -1,0 +1,149 @@
+{%load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>로그인</title>
+        <!-- Bootstrap icons-->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href = "{% static '/static01/css/styles.css' %}" rel = "stylesheet"/>
+
+        <style>
+            *{
+                margin: 0px;
+                padding: 0px;
+                }
+
+            body{
+                height: 100%;
+                }
+<!--            #main{-->
+<!--            position: absolute;-->
+<!--            width: 30%;-->
+<!--            left: 40%;-->
+<!--            top: 50%;-->
+<!--            transform: translate(-50%, -50%);-->
+<!--            }-->
+            article{
+                float:left;
+                }
+            @media screen and (min-width:100px){
+                #layout1{
+                    margin-left: 20%;
+                    margin-top: 20%;
+                    width:25%;
+                    height: 200px;
+                    }
+                #layout2{
+                    margin-left:13%;
+                    margin-top:15%;
+                    width:40%;
+                    }
+            @media screen and (max-width:500px){
+                #main{
+                    height: 600px;
+                    padding-bottom: 150px;
+                }
+                #layout1{
+                    margin: 5%;
+                    width:90%;
+                    height:100px;
+                }
+                #layout2{
+                    margin: 10%;
+                    width:85%;
+                    height: 400px;
+                }
+            }
+            .button{
+                background-color: #14279B;
+                border: none;
+                color: white;
+                padding: 15px 30px;
+                text-align: center;
+                text-decoration: none;
+                display: inline-block;
+                font-size: 16px;
+                cursor: pointer;
+                height: 50px;
+                border-radius: 5px;
+                }
+            input{
+                width: 300px;
+                height: 32px;
+                font-size: 15px;
+                border: 0;
+                border-radius: 15px;
+                outline: none;
+                background-color: #E6E6E6;
+                }
+            footer{
+                position:absolute;
+                left:0;
+                bottom:-100px;
+                width: 100%;
+                }
+            #message{
+                color:red;
+                }
+        </style>
+    </head>
+    <body>
+        <!-- Navigation-->
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container px-4 px-lg-5">
+                <a class="navbar-brand" href="#">수리하삼</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
+                        <li class="nav-item"><a class="nav-link" href="javascript:login();">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="javascript:login();">About</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#" style="color:#14279B;">Login</a></li>
+                    </ul>
+                    <form class="d-flex">
+                        <button class="btn btn-outline-dark" type="button" onclick="login();">
+                            <img src="https://cdn-icons-png.flaticon.com/512/3934/3934107.png" width="25px">
+                            Admin
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </nav>
+        <!-- Header-->
+        <div>
+            <section class="main" id="main">
+                <form method="post">{%csrf_token%}
+                    <article class="main" id="layout1">
+                        <img src="../static/static01/images/title.png" width="380px">
+                    </article>
+                    <article class="main" id="layout2">
+                        <p>아이디</p>
+                        <input type="text" name="username"><br><br>
+                        <p>비밀번호</p>
+                        <input type="password" name="password"><br><br><br>
+                        <p id="message">{{error}}</p>
+                        <input type="submit" value="로그인하기" class="button"><br><br>
+                        <input type="button" value="회원가입하기" class="button" onclick="location.href='{%url 'signUp'%}'">
+                    </article>
+                </form>
+            </section>
+        </div>
+        <!-- Footer-->
+        <footer class="py-5 bg-dark">
+            <div class="container"><p class="m-0 text-center text-white">Copyright &copy; Your Website 2022</p></div>
+        </footer>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="{% static '/static01/js/scripts.js'%}"></script>
+        <script>
+            function login(){
+                alert("로그인 후 이용 가능합니다.");
+                }
+        </script>
+    </body>
+</html>
