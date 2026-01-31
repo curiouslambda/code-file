@@ -1,0 +1,3 @@
+[2026-01-20 17:08:58,958] INFO - Embed device: cuda (NVIDIA GeForce RTX 3080 Ti) | model: intfloat/multilingual-e5-base
+[2026-01-20 17:08:58,963] INFO - chunks: 54
+[2026-01-20 17:10:00,702] INFO - index complete

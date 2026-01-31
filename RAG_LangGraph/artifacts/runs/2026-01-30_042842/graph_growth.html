@@ -1,0 +1,127 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        
+            <script src="lib/bindings/utils.js"></script>
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/dist/vis-network.min.css" integrity="sha512-WgxfT5LWjfszlPHXRmBWHkV2eceiWTOBvrKCNbdgDYTHrT2AeLCGbF4sZlZw3UMN3WtL0tGUoIAKsu8mllg/XA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/vis-network.min.js" integrity="sha512-LnvoEWDFrqGHlHmDD2101OrLcbsfkrzoSpvtSQtxK3RMnRV0eOkhhBN2dXHKRrUU8p2DGRTk35n4O8nWSVe1mQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+            
+        
+<center>
+<h1></h1>
+</center>
+
+<!-- <link rel="stylesheet" href="../node_modules/vis/dist/vis.min.css" type="text/css" />
+<script type="text/javascript" src="../node_modules/vis/dist/vis.js"> </script>-->
+        <link
+          href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
+          crossorigin="anonymous"
+        />
+        <script
+          src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
+          crossorigin="anonymous"
+        ></script>
+
+
+        <center>
+          <h1></h1>
+        </center>
+        <style type="text/css">
+
+             #mynetwork {
+                 width: 100%;
+                 height: 800px;
+                 background-color: #f8f9fa;
+                 border: 1px solid lightgray;
+                 position: relative;
+                 float: left;
+             }
+
+             
+
+             
+
+             
+        </style>
+    </head>
+
+
+    <body>
+        <div class="card" style="width: 100%">
+            
+            
+            <div id="mynetwork" class="card-body"></div>
+        </div>
+
+        
+        
+
+        <script type="text/javascript">
+
+              // initialize global variables.
+              var edges;
+              var nodes;
+              var allNodes;
+              var allEdges;
+              var nodeColors;
+              var originalNodes;
+              var network;
+              var container;
+              var options, data;
+              var filter = {
+                  item : '',
+                  property : '',
+                  value : []
+              };
+
+              
+
+              
+
+              // This method is responsible for drawing the graph, returns the drawn network
+              function drawGraph() {
+                  var container = document.getElementById('mynetwork');
+
+                  
+
+                  // parsing and collecting nodes and edges from the python
+                  nodes = new vis.DataSet([{"color": "#ff6b6b", "font": {"color": "#333333"}, "id": "C1", "label": "C1\n2026\ub144 \ud1b5\ud654\uc2e0\uc6a9\uc815\ucc45 \uc6b4\uc601\ubc29\ud5a5\uc740 \uc2dc\uc7a5 \ubd88\uc548\uc694\uc778 \ubc1c\uc0dd\uc5d0 \ub300\ube44\ud558\uace0 \ube44\uc740\ud589\uae08\uc735\uae30\uad00\uc5d0 \ub300\ud55c \uc720\ub3d9\uc131 \uacf5\uae09 \ubaa8\uc758\ud6c8\ub828 ...", "shape": "box", "size": 30, "title": "\u003cb\u003eC1\u003c/b\u003e\u003cbr\u003e2026\ub144 \ud1b5\ud654\uc2e0\uc6a9\uc815\ucc45 \uc6b4\uc601\ubc29\ud5a5\uc740 \uc2dc\uc7a5 \ubd88\uc548\uc694\uc778 \ubc1c\uc0dd\uc5d0 \ub300\ube44\ud558\uace0 \ube44\uc740\ud589\uae08\uc735\uae30\uad00\uc5d0 \ub300\ud55c \uc720\ub3d9\uc131 \uacf5\uae09 \ubaa8\uc758\ud6c8\ub828 \ub4f1\uc744 \ud1b5\ud574 \uc2dc\uc7a5 \uc548\uc815\ud654 \uc870\uce58\uc758 \uc2e4\ud6a8\uc131\uc744 \uc81c\uace0\ud560 \uacc4\ud68d\uc774\ub2e4."}, {"color": "#ff6b6b", "font": {"color": "#333333"}, "id": "C2", "label": "C2\n\uc774\ucc3d\uc6a9 \ud55c\uad6d\uc740\ud589 \ucd1d\uc7ac\ub294 2025\ub144 7\uc6d4 18\uc77c \u300c\uc81c30\ucc28 EMEAP \ucd1d\uc7ac\ud68c\uc758\u300d \ubc0f \u300c\uc81c14\ucc28 EMEAP \uc911\uc559...", "shape": "box", "size": 30, "title": "\u003cb\u003eC2\u003c/b\u003e\u003cbr\u003e\uc774\ucc3d\uc6a9 \ud55c\uad6d\uc740\ud589 \ucd1d\uc7ac\ub294 2025\ub144 7\uc6d4 18\uc77c \u300c\uc81c30\ucc28 EMEAP \ucd1d\uc7ac\ud68c\uc758\u300d \ubc0f \u300c\uc81c14\ucc28 EMEAP \uc911\uc559\uc740\ud589\ucd1d\uc7ac\u0026middot;\uae08\uc735\uac10\ub3c5\uae30\uad6c\uc218\uc7a5 \ud68c\uc758\u300d\uc5d0 \ucc38\uc11d\ud558\uc600\ub2e4."}, {"color": "#ff6b6b", "font": {"color": "#333333"}, "id": "C3", "label": "C3\n2025\ub144 9\uc6d4 \ud604\uc7ac \uc11c\uc6b8\ud2b9\ubcc4\uc2dc \uac15\ub0a8\uad6c, \uc11c\ucd08\uad6c, \uc1a1\ud30c\uad6c, \uc6a9\uc0b0\uad6c\uac00 \uaddc\uc81c\uc9c0\uc5ed\uc73c\ub85c \uc9c0\uc815\ub418\uc5b4 \uc788\uc73c\uba70, \uac70\uc8fc\uc790\uc678\ud654...", "shape": "box", "size": 30, "title": "\u003cb\u003eC3\u003c/b\u003e\u003cbr\u003e2025\ub144 9\uc6d4 \ud604\uc7ac \uc11c\uc6b8\ud2b9\ubcc4\uc2dc \uac15\ub0a8\uad6c, \uc11c\ucd08\uad6c, \uc1a1\ud30c\uad6c, \uc6a9\uc0b0\uad6c\uac00 \uaddc\uc81c\uc9c0\uc5ed\uc73c\ub85c \uc9c0\uc815\ub418\uc5b4 \uc788\uc73c\uba70, \uac70\uc8fc\uc790\uc678\ud654\uc608\uae08 \ub3d9\ud5a5\uc5d0\uc11c \uac1c\uc778\uc758 \uacbd\uc6b0 14.0% \uac10\uc18c\ud558\uc600\ub2e4."}, {"color": "#4dabf7", "font": {"color": "#333333"}, "id": "743b742de3cf3dbd3c2c236ed52b5d22cd25ef07", "label": "E\n\uc81c\ubaa9 \uc5c6\uc74c...", "shape": "ellipse", "size": 20, "title": "\u003cb\u003eEvidence\u003c/b\u003e\u003cbr\u003e\uc81c\ubaa9 \uc5c6\uc74c\u003cbr\u003e\u003cbr\u003e\ub0b4\uc6a9 \uc5c6\uc74c"}, {"color": "#4dabf7", "font": {"color": "#333333"}, "id": "6de1bf542ef5ab273def0e88543e5b7635a5f5fb", "label": "E\n[\ubcf4\ub3c4\uc790\ub8cc] 2026\ub144 \ud1b5\ud654\uc2e0\uc6a9\uc815\ucc45 \uc6b4\uc601\ubc29\ud5a5...", "shape": "ellipse", "size": 20, "title": "\u003cb\u003eEvidence\u003c/b\u003e\u003cbr\u003e[\ubcf4\ub3c4\uc790\ub8cc] 2026\ub144 \ud1b5\ud654\uc2e0\uc6a9\uc815\ucc45 \uc6b4\uc601\ubc29\ud5a5\u003cbr\u003e\u003cbr\u003elan)\uc744 \uc0c1\uc2dc \uc810\uac80\u00b7\ubcf4\uc644\ud558\uc5ec\n\uc2dc\uc7a5 \ubd88\uc548\uc694\uc778 \ubc1c\uc0dd\uc5d0 \ub300\ube44\ud558\uace0 \ube44\uc740\ud589\uae08\uc735\uae30\uad00\uc5d0 \ub300\ud55c \uc720\ub3d9\uc131\n\uacf5\uae09 \ubaa8\uc758\ud6c8\ub828* \ub4f1\uc744 \ud1b5\ud574 \uc2dc\uc7a5\uc548\uc815\ud654 \uc870\uce58\uc758 \uc2e4\ud6a8\uc131\uc744 \uc81c\uace0\n* \ube44\uc740\ud589\uae08\uc735\uae30\uad00\uc5d0 \ub300\ud574 \ubaa8\uc758 ..."}, {"color": "#4dabf7", "font": {"color": "#333333"}, "id": "88431181ab5407226bf73dcdff164c95cdac108f", "label": "E\n\uc81c\ubaa9 \uc5c6\uc74c...", "shape": "ellipse", "size": 20, "title": "\u003cb\u003eEvidence\u003c/b\u003e\u003cbr\u003e\uc81c\ubaa9 \uc5c6\uc74c\u003cbr\u003e\u003cbr\u003e\ub0b4\uc6a9 \uc5c6\uc74c"}, {"color": "#4dabf7", "font": {"color": "#333333"}, "id": "3e67b5f389e76f1abe8edc82bab1b168be7c0f67", "label": "E\n\uc774\ucc3d\uc6a9 \ud55c\uad6d\uc740\ud589 \ucd1d\uc7ac, \u300c\uc81c30\ucc28 EMEAP \ucd1d\uc7ac\ud68c\uc758\u300d...", "shape": "ellipse", "size": 20, "title": "\u003cb\u003eEvidence\u003c/b\u003e\u003cbr\u003e\uc774\ucc3d\uc6a9 \ud55c\uad6d\uc740\ud589 \ucd1d\uc7ac, \u300c\uc81c30\ucc28 EMEAP \ucd1d\uc7ac\ud68c\uc758\u300d \ubc0f \u300c\uc81c14\ucc28 EMEAP \uc911\uc559\uc740\ud589\ucd1d\uc7ac\u0026middot;\uae08\uc735\uac10\ub3c5\uae30\uad6c\uc218\uc7a5 \ud68c\uc758\u300d \ucc38\uc11d\u003cbr\u003e\u003cbr\u003e2025\ub144 7\uc6d4 18\uc77c \uacf5\ubcf4 2025-07-23\ud638\n\uc774\uc790\ub8cc\ub294 7\uc6d4 19\uc77c \uc870\uac04\ubd80\ud130 \ucde8\uae09\ud558\uc5ec\n\uc8fc\uc2ed\uc2dc\uc624. \ub2e8, \ud1b5\uc2e0/\ubc29\uc1a1/\uc778\ud130\ub137 \ub9e4\uccb4\ub294\n7\uc6d4 18\uc77c 12:00 \uc774\ud6c4\ubd80\ud130 \ucde8\uae09 \uac00\ub2a5\n\uc81c \ubaa9..."}, {"color": "#4dabf7", "font": {"color": "#333333"}, "id": "6b40e4e0750046d29e59822971ed7f7279c07e11", "label": "E\n\uc81c\ubaa9 \uc5c6\uc74c...", "shape": "ellipse", "size": 20, "title": "\u003cb\u003eEvidence\u003c/b\u003e\u003cbr\u003e\uc81c\ubaa9 \uc5c6\uc74c\u003cbr\u003e\u003cbr\u003e\ub0b4\uc6a9 \uc5c6\uc74c"}, {"color": "#4dabf7", "font": {"color": "#333333"}, "id": "94ea5bcd1f46b25144ffee9c4d237b28e9c55c3f", "label": "E\n\u300c\uae08\uc735\uc548\uc815 \uc0c1\ud669\u300d(2025\ub144 9\uc6d4)...", "shape": "ellipse", "size": 20, "title": "\u003cb\u003eEvidence\u003c/b\u003e\u003cbr\u003e\u300c\uae08\uc735\uc548\uc815 \uc0c1\ud669\u300d(2025\ub144 9\uc6d4)\u003cbr\u003e\u003cbr\u003e\uac70\uc8fc \uc694\uac74\uc744 \uac15\ud654\ud558\uc600\ub2e4.\n60) 2025\ub144 9\uc6d4 \ud604\uc7ac \uc11c\uc6b8\ud2b9\ubcc4\uc2dc \uac15\ub0a8\uad6c, \uc11c\ucd08\uad6c, \uc1a1\ud30c\uad6c, \uc6a9\uc0b0\uad6c\uac00 \uaddc\uc81c\uc9c0\uc5ed\uc73c\ub85c \uc9c0\uc815\ub418\uc5b4 \uc788\ub2e4.\n- 23/37 -\n\ubc15\uc218\uc5f0 / \uc548\uc815\ucd1d\uad04\ud300 / 2025..."}, {"color": "#4dabf7", "font": {"color": "#333333"}, "id": "bd3986a7cf1914fc4febc05fda574261da654462", "label": "E\n\uc81c\ubaa9 \uc5c6\uc74c...", "shape": "ellipse", "size": 20, "title": "\u003cb\u003eEvidence\u003c/b\u003e\u003cbr\u003e\uc81c\ubaa9 \uc5c6\uc74c\u003cbr\u003e\u003cbr\u003e\ub0b4\uc6a9 \uc5c6\uc74c"}, {"color": "#4dabf7", "font": {"color": "#333333"}, "id": "cedd8410e1aef1522101b3e69babde058a828f9b", "label": "E\n\uc81c\ubaa9 \uc5c6\uc74c...", "shape": "ellipse", "size": 20, "title": "\u003cb\u003eEvidence\u003c/b\u003e\u003cbr\u003e\uc81c\ubaa9 \uc5c6\uc74c\u003cbr\u003e\u003cbr\u003e\ub0b4\uc6a9 \uc5c6\uc74c"}]);
+                  edges = new vis.DataSet([{"arrows": "to", "color": "#3498db", "from": "C1", "label": "0.732", "title": "\uc720\uc0ac\ub3c4: 0.732", "to": "743b742de3cf3dbd3c2c236ed52b5d22cd25ef07", "width": 3.66}, {"arrows": "to", "color": "#3498db", "from": "C1", "label": "0.726", "title": "\uc720\uc0ac\ub3c4: 0.726", "to": "6de1bf542ef5ab273def0e88543e5b7635a5f5fb", "width": 3.63}, {"arrows": "to", "color": "#3498db", "from": "C1", "label": "0.720", "title": "\uc720\uc0ac\ub3c4: 0.720", "to": "88431181ab5407226bf73dcdff164c95cdac108f", "width": 3.5999999999999996}, {"arrows": "to", "color": "#2ecc71", "from": "C2", "label": "0.802", "title": "\uc720\uc0ac\ub3c4: 0.802", "to": "3e67b5f389e76f1abe8edc82bab1b168be7c0f67", "width": 4.01}, {"arrows": "to", "color": "#3498db", "from": "C2", "label": "0.731", "title": "\uc720\uc0ac\ub3c4: 0.731", "to": "6b40e4e0750046d29e59822971ed7f7279c07e11", "width": 3.655}, {"arrows": "to", "color": "#f39c12", "from": "C2", "label": "0.695", "title": "\uc720\uc0ac\ub3c4: 0.695", "to": "6de1bf542ef5ab273def0e88543e5b7635a5f5fb", "width": 3.4749999999999996}, {"arrows": "to", "color": "#3498db", "from": "C3", "label": "0.704", "title": "\uc720\uc0ac\ub3c4: 0.704", "to": "94ea5bcd1f46b25144ffee9c4d237b28e9c55c3f", "width": 3.5199999999999996}, {"arrows": "to", "color": "#f39c12", "from": "C3", "label": "0.696", "title": "\uc720\uc0ac\ub3c4: 0.696", "to": "bd3986a7cf1914fc4febc05fda574261da654462", "width": 3.4799999999999995}, {"arrows": "to", "color": "#f39c12", "from": "C3", "label": "0.685", "title": "\uc720\uc0ac\ub3c4: 0.685", "to": "cedd8410e1aef1522101b3e69babde058a828f9b", "width": 3.4250000000000003}]);
+
+                  nodeColors = {};
+                  allNodes = nodes.get({ returnType: "Object" });
+                  for (nodeId in allNodes) {
+                    nodeColors[nodeId] = allNodes[nodeId].color;
+                  }
+                  allEdges = edges.get({ returnType: "Object" });
+                  // adding nodes and edges to the graph
+                  data = {nodes: nodes, edges: edges};
+
+                  var options = {"physics": {"enabled": true, "barnesHut": {"gravitationalConstant": -8000, "springLength": 200, "springConstant": 0.04}}, "nodes": {"font": {"size": 14, "face": "\ub9d1\uc740\uace0\ub515,Arial"}}, "edges": {"arrows": {"to": {"enabled": true}}, "smooth": {"type": "continuous"}}};
+
+                  
+
+
+                  
+
+                  network = new vis.Network(container, data, options);
+
+                  
+
+                  
+
+                  
+
+
+                  
+
+                  return network;
+
+              }
+              drawGraph();
+        </script>
+    </body>
+</html>

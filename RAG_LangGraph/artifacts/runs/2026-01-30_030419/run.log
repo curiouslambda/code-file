@@ -1,0 +1,14 @@
+[2026-01-30 03:04:20,315] INFO - HTML body looks empty/incomplete, trying PDF extraction (3 attachments)
+[2026-01-30 03:04:20,316] INFO - Trying to extract PDF: https://www.bok.or.kr/fileSrc/portal/59197cecce954dccaec0a5a4d7cea672/2/d6d266ac...
+[2026-01-30 03:04:20,915] INFO - PDF extracted: len=1672 chars
+[2026-01-30 03:04:20,915] INFO - ✓ PDF text accepted (>= 100 chars)
+[2026-01-30 03:04:20,915] INFO - ✓ Using PDF content: len=1672 chars
+[2026-01-30 03:04:20,915] INFO - ingested: [보도자료] 한국은행, 「중소기업 한시 특별지원」 운용기한 연장 | src=pdf
+[2026-01-30 03:04:21,198] INFO - ingested: 통화정책방향(2026.1.15) | src=html
+[2026-01-30 03:04:21,525] INFO - HTML body looks empty/incomplete, trying PDF extraction (3 attachments)
+[2026-01-30 03:04:21,526] INFO - Trying to extract PDF: https://www.bok.or.kr/fileSrc/portal/7bba88bef1144b3fbc1c9b8eaba834d7/2/e88da4fb...
+[2026-01-30 03:04:22,732] INFO - PDF extracted: len=6251 chars
+[2026-01-30 03:04:22,733] INFO - ✓ PDF text accepted (>= 100 chars)
+[2026-01-30 03:04:22,733] INFO - ✓ Using PDF content: len=6251 chars
+[2026-01-30 03:04:22,733] INFO - ingested: [보도자료] 2026년 통화신용정책 운영방향 | src=pdf
+[2026-01-30 03:04:22,738] INFO - saved: F:\RAG\rag_eco\artifacts\runs\2026-01-30_030419\ingest_raw.json

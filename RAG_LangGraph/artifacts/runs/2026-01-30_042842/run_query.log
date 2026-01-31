@@ -1,0 +1,11 @@
+[2026-01-30 04:30:13,887] INFO - Embed device: cuda (NVIDIA GeForce RTX 3080 Ti) | model: intfloat/multilingual-e5-base
+[2026-01-30 04:30:57,902] INFO - Embed device: cuda (NVIDIA GeForce RTX 3080 Ti) | model: intfloat/multilingual-e5-base
+[2026-01-30 04:31:06,186] INFO - report generated
+[2026-01-30 04:31:47,578] INFO - Embed device: cuda (NVIDIA GeForce RTX 3080 Ti) | model: intfloat/multilingual-e5-base
+[2026-01-30 04:31:57,913] INFO - report generated
+[2026-01-30 04:32:33,474] INFO - Embed device: cuda (NVIDIA GeForce RTX 3080 Ti) | model: intfloat/multilingual-e5-base
+[2026-01-30 04:32:42,843] INFO - report generated
+[2026-01-30 04:33:18,917] INFO - Embed device: cuda (NVIDIA GeForce RTX 3080 Ti) | model: intfloat/multilingual-e5-base
+[2026-01-30 04:33:28,068] INFO - report generated
+[2026-01-30 04:34:09,456] INFO - Embed device: cuda (NVIDIA GeForce RTX 3080 Ti) | model: intfloat/multilingual-e5-base
+[2026-01-30 04:34:18,707] INFO - report generated

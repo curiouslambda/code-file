@@ -1,0 +1,196 @@
+[2026-01-30 14:02:18,601] INFO - HTML body looks empty/incomplete, trying PDF extraction (3 attachments)
+[2026-01-30 14:02:18,601] INFO - Trying to extract PDF: https://www.bok.or.kr/fileSrc/portal/59197cecce954dccaec0a5a4d7cea672/2/d6d266ac...
+[2026-01-30 14:02:19,162] INFO - PDF extracted: len=1672 chars
+[2026-01-30 14:02:19,162] INFO - ✓ PDF text accepted (>= 100 chars)
+[2026-01-30 14:02:19,162] INFO - ✓ Using PDF content: len=1672 chars
+[2026-01-30 14:02:19,162] INFO - ingested: [보도자료] 한국은행, 「중소기업 한시 특별지원」 운용기한 연장 | src=pdf
+[2026-01-30 14:02:19,472] INFO - ingested: 통화정책방향(2026.1.15) | src=html
+[2026-01-30 14:02:19,864] INFO - HTML body looks empty/incomplete, trying PDF extraction (3 attachments)
+[2026-01-30 14:02:19,864] INFO - Trying to extract PDF: https://www.bok.or.kr/fileSrc/portal/7bba88bef1144b3fbc1c9b8eaba834d7/2/e88da4fb...
+[2026-01-30 14:02:21,374] INFO - PDF extracted: len=6251 chars
+[2026-01-30 14:02:21,374] INFO - ✓ PDF text accepted (>= 100 chars)
+[2026-01-30 14:02:21,374] INFO - ✓ Using PDF content: len=6251 chars
+[2026-01-30 14:02:21,374] INFO - ingested: [보도자료] 2026년 통화신용정책 운영방향 | src=pdf
+[2026-01-30 14:02:21,583] INFO - HTML body looks empty/incomplete, trying PDF extraction (3 attachments)
+[2026-01-30 14:02:21,583] INFO - Trying to extract PDF: https://www.bok.or.kr/fileSrc/portal/92b6b64fa5d54c0dbb1a701e0e825664/2/8d1121ba...
+[2026-01-30 14:02:21,962] INFO - PDF extracted: len=1105 chars
+[2026-01-30 14:02:21,962] INFO - ✓ PDF text accepted (>= 100 chars)
+[2026-01-30 14:02:21,963] INFO - ✓ Using PDF content: len=1105 chars
+[2026-01-30 14:02:21,963] INFO - ingested: [보도자료] 한시적 외화지준 부리 실시 | src=pdf
+[2026-01-30 14:02:22,150] INFO - HTML body looks empty/incomplete, trying PDF extraction (3 attachments)
+[2026-01-30 14:02:22,150] INFO - Trying to extract PDF: https://www.bok.or.kr/fileSrc/portal/0f9039c0f5d84154ada0af19107010dc/2/fb51739d...
+[2026-01-30 14:02:22,595] INFO - PDF extracted: len=827 chars
+[2026-01-30 14:02:22,595] INFO - ✓ PDF text accepted (>= 100 chars)
+[2026-01-30 14:02:22,595] INFO - ✓ Using PDF content: len=827 chars
+[2026-01-30 14:02:22,595] INFO - ingested: [보도자료] 한시적 외환건전성부담금 면제 실시 | src=pdf
+[2026-01-30 14:02:22,798] INFO - HTML body looks empty/incomplete, trying PDF extraction (3 attachments)
+[2026-01-30 14:02:22,798] INFO - Trying to extract PDF: https://www.bok.or.kr/fileSrc/portal/4857afa52c9b410fa821df03462487ad/2/046f5573...
+[2026-01-30 14:02:23,155] INFO - PDF extracted: len=741 chars
+[2026-01-30 14:02:23,155] INFO - ✓ PDF text accepted (>= 100 chars)
+[2026-01-30 14:02:23,156] INFO - ✓ Using PDF content: len=741 chars
+[2026-01-30 14:02:23,156] INFO - ingested: [보도참고자료] 외환당국, 국민연금과 650억달러 한도의 외환스왑 거래를 2026년말까지 연장하기로 합의 | src=pdf
+[2026-01-30 14:02:23,400] INFO - HTML body looks empty/incomplete, trying PDF extraction (11 attachments)
+[2026-01-30 14:02:23,401] INFO - Trying to extract PDF: https://www.bok.or.kr/fileSrc/portal/c2bf921ffa524969aa87aaf7ac7cd98e/1/52cb3a19...
+[2026-01-30 14:02:25,096] INFO - PDF extracted: len=3167 chars
+[2026-01-30 14:02:25,096] INFO - ✓ PDF text accepted (>= 100 chars)
+[2026-01-30 14:02:25,096] INFO - ✓ Using PDF content: len=3167 chars
+[2026-01-30 14:02:25,096] INFO - ingested: [보도자료] 한국은행 통화정책 컨퍼런스 개최 | src=pdf
+[2026-01-30 14:02:25,296] INFO - HTML body looks empty/incomplete, trying PDF extraction (3 attachments)
+[2026-01-30 14:02:25,296] INFO - Trying to extract PDF: https://www.bok.or.kr/fileSrc/portal/f2ddc1f1abb24dd0abc8f28c147cb06b/2/abfd962b...
+[2026-01-30 14:02:26,311] INFO - PDF extracted: len=4943 chars
+[2026-01-30 14:02:26,311] INFO - ✓ PDF text accepted (>= 100 chars)
+[2026-01-30 14:02:26,311] INFO - ✓ Using PDF content: len=4943 chars
+[2026-01-30 14:02:26,311] INFO - ingested: [보도자료] 한국은행, 금융기관 대출채권을 담보로 하는 긴급여신 지원체계 구축 | src=pdf
+[2026-01-30 14:02:26,578] INFO - ingested: 통화정책방향(2025.11.27) | src=html
+[2026-01-30 14:02:26,817] INFO - HTML body looks empty/incomplete, trying PDF extraction (3 attachments)
+[2026-01-30 14:02:26,817] INFO - Trying to extract PDF: https://www.bok.or.kr/fileSrc/portal/4605a68981724ba6b563ed4e5335299a/2/f8bba1b1...
+[2026-01-30 14:02:28,738] INFO - PDF extracted: len=7651 chars
+[2026-01-30 14:02:28,738] INFO - ✓ PDF text accepted (>= 100 chars)
+[2026-01-30 14:02:28,738] INFO - ✓ Using PDF content: len=7651 chars
+[2026-01-30 14:02:28,738] INFO - ingested: 금융기관 대출행태서베이 결과(2025년 3/4분기 동향 및 2025년 4/4분기 전망) | src=pdf
+[2026-01-30 14:02:29,021] INFO - ingested: 통화정책방향(2025.10.23) | src=html
+[2026-01-30 14:02:29,380] INFO - HTML body looks empty/incomplete, trying PDF extraction (3 attachments)
+[2026-01-30 14:02:29,380] INFO - Trying to extract PDF: https://www.bok.or.kr/fileSrc/portal/3e0b009327d1449cb6aa8dba8480efa4/1/d4f9555d...
+[2026-01-30 14:02:29,868] INFO - PDF extracted: len=1971 chars
+[2026-01-30 14:02:29,868] INFO - ✓ PDF text accepted (>= 100 chars)
+[2026-01-30 14:02:29,868] INFO - ✓ Using PDF content: len=1971 chars
+[2026-01-30 14:02:29,868] INFO - ingested: [보도자료] 2025년 8월중 거주자외화예금 동향 | src=pdf
+[2026-01-30 14:02:30,076] INFO - HTML body looks empty/incomplete, trying PDF extraction (3 attachments)
+[2026-01-30 14:02:30,076] INFO - Trying to extract PDF: https://www.bok.or.kr/fileSrc/portal/c21ec572aabe42da9c184b69fbed8e4b/2/a91a9427...
+[2026-01-30 14:02:40,955] INFO - PDF extracted: len=26646 chars
+[2026-01-30 14:02:40,955] INFO - ✓ PDF text accepted (>= 100 chars)
+[2026-01-30 14:02:40,955] INFO - ✓ Using PDF content: len=26646 chars
+[2026-01-30 14:02:40,956] INFO - ingested: 「금융안정 상황」(2025년 9월) | src=pdf
+[2026-01-30 14:02:41,223] INFO - ingested: 「통화신용정책보고서」(2025년 9월) | src=html
+[2026-01-30 14:02:41,436] INFO - HTML body looks empty/incomplete, trying PDF extraction (3 attachments)
+[2026-01-30 14:02:41,436] INFO - Trying to extract PDF: https://www.bok.or.kr/fileSrc/portal/fc8ee3ce4458483aa3c29d21a81d48df/1/dca4b454...
+[2026-01-30 14:02:42,906] INFO - PDF extracted: len=3648 chars
+[2026-01-30 14:02:42,906] INFO - ✓ PDF text accepted (>= 100 chars)
+[2026-01-30 14:02:42,906] INFO - ✓ Using PDF content: len=3648 chars
+[2026-01-30 14:02:42,906] INFO - ingested: [보도자료] 2025년 2/4분기중 주요 기관투자가의 외화증권투자 동향 | src=pdf
+[2026-01-30 14:02:43,189] INFO - ingested: 통화정책방향(2025.8.28) | src=html
+[2026-01-30 14:02:43,444] INFO - HTML body looks empty/incomplete, trying PDF extraction (3 attachments)
+[2026-01-30 14:02:43,444] INFO - Trying to extract PDF: https://www.bok.or.kr/fileSrc/portal/cc5e9c3fcec14bffa75ded8261cb04b8/1/dca052bf...
+[2026-01-30 14:02:43,950] INFO - PDF extracted: len=1898 chars
+[2026-01-30 14:02:43,951] INFO - ✓ PDF text accepted (>= 100 chars)
+[2026-01-30 14:02:43,951] INFO - ✓ Using PDF content: len=1898 chars
+[2026-01-30 14:02:43,951] INFO - ingested: [보도자료] 2025년 7월중 거주자외화예금 동향 | src=pdf
+[2026-01-30 14:02:44,164] INFO - HTML body looks empty/incomplete, trying PDF extraction (3 attachments)
+[2026-01-30 14:02:44,164] INFO - Trying to extract PDF: https://www.bok.or.kr/fileSrc/portal/9df48606b0f2405d8771ef1436975e94/1/f0454c71...
+[2026-01-30 14:02:44,638] INFO - PDF extracted: len=2020 chars
+[2026-01-30 14:02:44,639] INFO - ✓ PDF text accepted (>= 100 chars)
+[2026-01-30 14:02:44,639] INFO - ✓ Using PDF content: len=2020 chars
+[2026-01-30 14:02:44,639] INFO - ingested: [보도자료] 한국은행, ｢중소기업 한시 특별지원｣ 운용기한 연장 및 집중호우 피해 중소기업 지원 | src=pdf
+[2026-01-30 14:02:44,979] INFO - HTML body looks empty/incomplete, trying PDF extraction (3 attachments)
+[2026-01-30 14:02:44,979] INFO - Trying to extract PDF: https://www.bok.or.kr/fileSrc/portal/83acc74e4ca34b90ac7b4117d7337864/2/b8b2586f...
+[2026-01-30 14:02:45,353] INFO - PDF extracted: len=1134 chars
+[2026-01-30 14:02:45,353] INFO - ✓ PDF text accepted (>= 100 chars)
+[2026-01-30 14:02:45,353] INFO - ✓ Using PDF content: len=1134 chars
+[2026-01-30 14:02:45,353] INFO - ingested: 이창용 한국은행 총재, 「제30차 EMEAP 총재회의」 및 「제14차 EMEAP 중앙은행총재&middot;금융감독기구수장 회의」 참석 | src=pdf
+[2026-01-30 14:02:45,637] INFO - ingested: 통화정책방향(2025.7.10) | src=html
+[2026-01-30 14:02:45,849] INFO - HTML body looks empty/incomplete, trying PDF extraction (3 attachments)
+[2026-01-30 14:02:45,849] INFO - Trying to extract PDF: https://www.bok.or.kr/fileSrc/portal/eb2a450b675c482f90a44d14a01ea967/2/a126b2a5...
+[2026-01-30 14:02:47,092] INFO - PDF extracted: len=4667 chars
+[2026-01-30 14:02:47,092] INFO - ✓ PDF text accepted (>= 100 chars)
+[2026-01-30 14:02:47,092] INFO - ✓ Using PDF content: len=4667 chars
+[2026-01-30 14:02:47,092] INFO - ingested: [보도자료] 한국은행, 보다 탄력적인 유동성 조절을 위해 공개시장운영 제도를 개편 | src=pdf
+[2026-01-30 14:02:47,587] INFO - HTML body looks empty/incomplete, trying PDF extraction (7 attachments)
+[2026-01-30 14:02:47,588] INFO - Trying to extract PDF: https://www.bok.or.kr/fileSrc/portal/e24aa7eaa3aa40f081a7a07a3864a10f/2/9e74a2cd...
+[2026-01-30 14:02:47,892] INFO - PDF extracted: len=392 chars
+[2026-01-30 14:02:47,892] INFO - ✓ PDF text accepted (>= 100 chars)
+[2026-01-30 14:02:47,892] INFO - ✓ Using PDF content: len=392 chars
+[2026-01-30 14:02:47,892] INFO - ingested: 「금융안정보고서」(2025년 6월) | src=pdf
+[2026-01-30 14:02:48,116] INFO - HTML body looks empty/incomplete, trying PDF extraction (3 attachments)
+[2026-01-30 14:02:48,117] INFO - Trying to extract PDF: https://www.bok.or.kr/fileSrc/portal/6ddba8b62284430ba6b90a5eba679042/1/a2e3119b...
+[2026-01-30 14:02:48,637] INFO - PDF extracted: len=1888 chars
+[2026-01-30 14:02:48,637] INFO - ✓ PDF text accepted (>= 100 chars)
+[2026-01-30 14:02:48,637] INFO - ✓ Using PDF content: len=1888 chars
+[2026-01-30 14:02:48,637] INFO - ingested: [보도자료] 2025년 5월중 거주자외화예금 동향 | src=pdf
+[2026-01-30 14:02:48,879] INFO - ingested: 통화정책방향(2025.5.29) | src=html
+[2026-01-30 14:02:49,103] INFO - HTML body looks empty/incomplete, trying PDF extraction (3 attachments)
+[2026-01-30 14:02:49,103] INFO - Trying to extract PDF: https://www.bok.or.kr/fileSrc/portal/e3529639a9954a6ab4c372d1e7d32d79/2/acc07788...
+[2026-01-30 14:02:49,604] INFO - PDF extracted: len=1958 chars
+[2026-01-30 14:02:49,605] INFO - ✓ PDF text accepted (>= 100 chars)
+[2026-01-30 14:02:49,605] INFO - ✓ Using PDF content: len=1958 chars
+[2026-01-30 14:02:49,605] INFO - ingested: [보도자료] 2025년 3월중 거주자외화예금 동향 | src=pdf
+[2026-01-30 14:02:49,843] INFO - ingested: 통화정책방향(2025.4.17) | src=html
+[2026-01-30 14:02:50,209] INFO - HTML body looks empty/incomplete, trying PDF extraction (3 attachments)
+[2026-01-30 14:02:50,209] INFO - Trying to extract PDF: https://www.bok.or.kr/fileSrc/portal/775f99cafda342c297a4affd87dad09e/2/5386a8da...
+[2026-01-30 14:02:50,827] INFO - PDF extracted: len=699 chars
+[2026-01-30 14:02:50,828] INFO - ✓ PDF text accepted (>= 100 chars)
+[2026-01-30 14:02:50,828] INFO - ✓ Using PDF content: len=699 chars
+[2026-01-30 14:02:50,828] INFO - ingested: [보도자료] 한국은행, 울산&middot;경북&middot;경남지역 산불 피해 중소기업 지원 | src=pdf
+[2026-01-30 14:02:51,054] INFO - HTML body looks empty/incomplete, trying PDF extraction (3 attachments)
+[2026-01-30 14:02:51,054] INFO - Trying to extract PDF: https://www.bok.or.kr/fileSrc/portal/6f8bba9dc09248afb82b254ecc4c4926/1/d8493fcf...
+[2026-01-30 14:02:59,254] INFO - PDF extracted: len=8980 chars
+[2026-01-30 14:02:59,254] INFO - ✓ PDF text accepted (>= 100 chars)
+[2026-01-30 14:02:59,255] INFO - ✓ Using PDF content: len=8980 chars
+[2026-01-30 14:02:59,255] INFO - ingested: 「금융안정 상황」(2025년 3월) | src=pdf
+[2026-01-30 14:02:59,530] INFO - HTML body looks empty/incomplete, trying PDF extraction (3 attachments)
+[2026-01-30 14:02:59,531] INFO - Trying to extract PDF: https://www.bok.or.kr/fileSrc/portal/8e533b877ba84ca7b487cfdb897cd9f4/1/6e81724f...
+[2026-01-30 14:03:00,643] INFO - PDF extracted: len=1877 chars
+[2026-01-30 14:03:00,644] INFO - ✓ PDF text accepted (>= 100 chars)
+[2026-01-30 14:03:00,644] INFO - ✓ Using PDF content: len=1877 chars
+[2026-01-30 14:03:00,644] INFO - ingested: 「2025년 금융경제법 연구논문 현상공모」 실시 | src=pdf
+[2026-01-30 14:03:00,908] INFO - ingested: 「통화신용정책보고서」(2025년 3월) | src=html
+[2026-01-30 14:03:01,137] INFO - ingested: 통화정책방향(2025.2.25) | src=html
+[2026-01-30 14:03:01,403] INFO - ingested: 통화정책방향(2025.1.16) | src=html
+[2026-01-30 14:03:01,652] INFO - HTML body looks empty/incomplete, trying PDF extraction (3 attachments)
+[2026-01-30 14:03:01,652] INFO - Trying to extract PDF: https://www.bok.or.kr/fileSrc/portal/38924c9ff1034a0c9a82c3db3ccb46b3/2/3e17ed2d...
+[2026-01-30 14:03:02,326] INFO - PDF extracted: len=1253 chars
+[2026-01-30 14:03:02,326] INFO - ✓ PDF text accepted (>= 100 chars)
+[2026-01-30 14:03:02,326] INFO - ✓ Using PDF content: len=1253 chars
+[2026-01-30 14:03:02,326] INFO - ingested: [보도자료] 한국은행 금융중개지원대출을 통해 중소기업에 대한 한시 특별지원을 5조원 확대 운용 | src=pdf
+[2026-01-30 14:03:02,766] INFO - HTML body looks empty/incomplete, trying PDF extraction (3 attachments)
+[2026-01-30 14:03:03,387] INFO - Trying to extract PDF: https://www.bok.or.kr/fileSrc/portal/ddedf860c0234c9b9239d660f5777e75/2/063e0393...
+[2026-01-30 14:03:06,942] INFO - PDF extracted: len=4897 chars
+[2026-01-30 14:03:06,942] INFO - ✓ PDF text accepted (>= 100 chars)
+[2026-01-30 14:03:06,942] INFO - ✓ Using PDF content: len=4897 chars
+[2026-01-30 14:03:06,944] INFO - ingested: [보도자료] 2024년중 위조지폐 발견 현황 및 2024년 하반기 화폐위조범 검거 유공자 포상 | src=pdf
+[2026-01-30 14:03:07,338] INFO - HTML body looks empty/incomplete, trying PDF extraction (3 attachments)
+[2026-01-30 14:03:07,338] INFO - Trying to extract PDF: https://www.bok.or.kr/fileSrc/portal/87d6574ddc96480ea3ec9620bd1d1d95/2/df5f55dd...
+[2026-01-30 14:03:08,663] INFO - PDF extracted: len=6066 chars
+[2026-01-30 14:03:08,663] INFO - ✓ PDF text accepted (>= 100 chars)
+[2026-01-30 14:03:08,663] INFO - ✓ Using PDF content: len=6066 chars
+[2026-01-30 14:03:08,663] INFO - ingested: [보도자료] 2025년 통화신용정책 운영방향 | src=pdf
+[2026-01-30 14:03:08,875] INFO - HTML body looks empty/incomplete, trying PDF extraction (3 attachments)
+[2026-01-30 14:03:08,875] INFO - Trying to extract PDF: https://www.bok.or.kr/fileSrc/portal/d2b42b9480d54ecea53d7abfdd1fdf24/2/29a0b471...
+[2026-01-30 14:03:13,509] INFO - PDF extracted: len=13609 chars
+[2026-01-30 14:03:13,510] INFO - ✓ PDF text accepted (>= 100 chars)
+[2026-01-30 14:03:13,510] INFO - ✓ Using PDF content: len=13609 chars
+[2026-01-30 14:03:13,510] INFO - ingested: 비상계엄 이후 금융&middot;경제 영향 평가 및 대응방향 | src=pdf
+[2026-01-30 14:03:13,775] INFO - HTML body looks empty/incomplete, trying PDF extraction (3 attachments)
+[2026-01-30 14:03:13,775] INFO - Trying to extract PDF: https://www.bok.or.kr/fileSrc/portal/c824912055c340d1825e2eec76a7cd54/2/5249311d...
+[2026-01-30 14:03:14,449] INFO - PDF extracted: len=2047 chars
+[2026-01-30 14:03:14,449] INFO - ✓ PDF text accepted (>= 100 chars)
+[2026-01-30 14:03:14,449] INFO - ✓ Using PDF content: len=2047 chars
+[2026-01-30 14:03:14,449] INFO - ingested: 금융&middot;외환시장 점검 및 시장안정화 조치 실시 | src=pdf
+[2026-01-30 14:03:14,805] INFO - ingested: 통화정책방향(2024.11.28) | src=html
+[2026-01-30 14:03:15,041] INFO - ingested: 통화정책방향(2024.10.11) | src=html
+[2026-01-30 14:03:15,278] INFO - ingested: 2024년 하반기 금융협의회 개최 | src=html
+[2026-01-30 14:03:15,564] INFO - ingested: 「통화신용정책보고서」(2024년 9월) | src=html
+[2026-01-30 14:03:15,758] INFO - HTML body looks empty/incomplete, trying PDF extraction (3 attachments)
+[2026-01-30 14:03:15,758] INFO - Trying to extract PDF: https://www.bok.or.kr/fileSrc/portal/535cb9c1333a414589e7fd23f570baf2/2/d4fcb15e...
+[2026-01-30 14:03:17,885] INFO - PDF extracted: len=5482 chars
+[2026-01-30 14:03:17,885] INFO - ✓ PDF text accepted (>= 100 chars)
+[2026-01-30 14:03:17,885] INFO - ✓ Using PDF content: len=5482 chars
+[2026-01-30 14:03:17,885] INFO - ingested: 한국은행, 「MOEF-BOK-KDI-RBWC 국제컨퍼런스: 2024 Global Economy and Financial Stability」 공동 개최 | src=pdf
+[2026-01-30 14:03:18,378] INFO - ingested: 통화정책방향(2024.8.22) | src=html
+[2026-01-30 14:03:18,614] INFO - HTML body looks empty/incomplete, trying PDF extraction (3 attachments)
+[2026-01-30 14:03:18,614] INFO - Trying to extract PDF: https://www.bok.or.kr/fileSrc/portal/c853fae3f48649a09352addbe76e2c6f/2/47beee2f...
+[2026-01-30 14:03:19,048] INFO - PDF extracted: len=1404 chars
+[2026-01-30 14:03:19,048] INFO - ✓ PDF text accepted (>= 100 chars)
+[2026-01-30 14:03:19,048] INFO - ✓ Using PDF content: len=1404 chars
+[2026-01-30 14:03:19,048] INFO - ingested: [보도자료] 한국은행 중소기업 한시 특별지원 기한 1년 연장 | src=pdf
+[2026-01-30 14:03:19,467] INFO - ingested: 통화정책방향(2024.7.11) | src=html
+[2026-01-30 14:03:19,682] INFO - HTML body looks empty/incomplete, trying PDF extraction (3 attachments)
+[2026-01-30 14:03:19,682] INFO - Trying to extract PDF: https://www.bok.or.kr/fileSrc/portal/9e94636e3079a1ea0a4a95476d1559a8/2/20240613...
+[2026-01-30 14:03:20,333] INFO - PDF extracted: len=903 chars
+[2026-01-30 14:03:20,333] INFO - ✓ PDF text accepted (>= 100 chars)
+[2026-01-30 14:03:20,333] INFO - ✓ Using PDF content: len=903 chars
+[2026-01-30 14:03:20,333] INFO - ingested: [보도자료] 한국은행, 커버드본드를 대출 등의 적격담보에 포함 | src=pdf
+[2026-01-30 14:03:20,636] INFO - ingested: 통화정책방향(2024.5.23) | src=html
+[2026-01-30 14:03:21,024] INFO - ingested: 통화정책방향(2024.4.12) | src=html
+[2026-01-30 14:03:21,248] INFO - ingested: 「통화신용정책보고서」(2024년 3월) | src=html
+[2026-01-30 14:03:21,485] INFO - ingested: 통화정책방향(2024.2.22) | src=html
+[2026-01-30 14:03:21,495] INFO - saved: F:\RAG\rag_eco\artifacts\runs\2026-01-30_140218\ingest_raw.json

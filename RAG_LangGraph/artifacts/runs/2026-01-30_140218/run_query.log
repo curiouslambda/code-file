@@ -1,0 +1,6 @@
+[2026-01-30 14:15:40,022] INFO - Embed device: cuda (NVIDIA GeForce RTX 3080 Ti) | model: intfloat/multilingual-e5-base
+[2026-01-30 14:15:51,800] INFO - report generated
+[2026-01-30 14:34:49,879] INFO - Embed device: cuda (NVIDIA GeForce RTX 3080 Ti) | model: intfloat/multilingual-e5-base
+[2026-01-30 14:35:12,063] INFO - report generated
+[2026-01-30 14:39:15,482] INFO - Embed device: cuda (NVIDIA GeForce RTX 3080 Ti) | model: intfloat/multilingual-e5-base
+[2026-01-30 14:39:23,763] INFO - report generated
