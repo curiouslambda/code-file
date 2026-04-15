@@ -1,8 +1,8 @@
-## stock_data_preprocessing 프로젝트 개요
+## preprocessing 프로젝트 개요
 
 ### 파일 트리
 ```text
-f:\주식\stock_data_preprocessing\
+root\
   - ISSUE.md
   - README.md
   - PROJECT_OVERVIEW.md  ← 이 파일
